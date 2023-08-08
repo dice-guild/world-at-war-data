@@ -1,0 +1,1283 @@
+{
+    "reportUrl": "https://github.com/dice-guild/world-war-two/issues",
+    "author": "guitarninja#5707",
+    "factions": {
+        "germany": {
+            "version": "1.0",
+            "name": "Germany",
+            "id": "germany",
+            "url": "germany.json",
+            "color": "#585C75",
+            "alliance": "axis",
+            "description": "Well-known as one of the major aggressors of World War Two, Germany revolutionized mobile warfare in a way never seen before. Germany relies on hard infantry and deadly armored vehicles.",
+            "subfactions": {
+                "infantry_focus": {"name": "Infantry", "id": "infantry_focus", "description": "High quality infantry and anti-tank artillery.", "restricted": true},
+                "airborne_focus": {"name": "Airborne", "id": "airborne_focus", "description": "Airborne infantry and deceptive sabotage tactics.", "restricted": true},
+                "armored_focus": {"name": "Armored", "id": "armored_focus", "description": "Mechanized or motorized infantry and deadly armored vehicles.", "restricted": true},
+                "reserves_focus": {"name": "Reserves", "id": "reserves_focus", "description": "Low-quality reserve troops and equipment.", "restricted": true}
+            }
+        },
+        "japan": {
+            "version": "1.0",
+            "name": "Japan",
+            "id": "japan",
+            "url": "japan.json",
+            "color": "#BE8200",
+            "alliance": "axis",
+            "description": "Opportunists and expansionists during, the Japanese seized as many valuable resources and as much land as they could early in the war. Japan relies on both veteran trained marine and paratrooper units as well as some light but reliable vehicles.",
+            "subfactions": {
+                "infantry_focus": {"name": "Infantry", "id": "infantry_focus", "description": "High quality infantry and anti-tank artillery.", "restricted": true},
+                "armored_focus": {"name": "Armored", "id": "armored_focus", "description": "Mechanized or motorized infantry and deadly armored vehicles.", "restricted": true}
+            }
+        },
+        "finland": {
+            "version": "1.0",
+            "name": "Finland",
+            "id": "finland",
+            "url": "finland.json",
+            "color": "#5D8CAA",
+            "alliance": "axis",
+            "description": "While originally attempting to remain neutral, Finland was introduced to the war when they were invaded by the Soviet Union, a significantly stronger force. The Finnish use encirclement and stealth tactics to outsmart and outflank their foes before they can correctly respond.",
+            "subfactions": {
+                "infantry_focus": {"name": "Infantry", "id": "infantry_focus", "description": "High quality infantry and anti-tank artillery.", "restricted": true},
+                "armored_focus": {"name": "Armored", "id": "armored_focus", "description": "Mechanized or motorized infantry and deadly armored vehicles.", "restricted": true}
+            }
+        },
+        "united_states": {
+            "version": "1.0",
+            "name": "United States",
+            "id": "united_states",
+            "url": "united_states.json",
+            "color": "#4A7643",
+            "alliance": "allies",
+            "description": "The United States, while originally attempting to remain neutral, was suddenly attacked by the Japanese at pearl harbor and was forced to substantially ramp up production to begin fighting on both pacific and western fronts. The United States rely on mobile infantry units and weapons along with solid and reliable, yet numerous sherman tanks.",
+            "subfactions": {
+                "infantry_focus": {"name": "Infantry", "id": "infantry_focus", "description": "High quality infantry and anti-tank artillery.", "restricted": true},
+                "airborne_focus": {"name": "Airborne", "id": "airborne_focus", "description": "Airborne infantry and deceptive sabotage tactics.", "restricted": true},
+                "armored_focus": {"name": "Armored", "id": "armored_focus", "description": "Mechanized or motorized infantry and deadly armored vehicles.", "restricted": true}
+            }
+        },
+        "soviet_union": {
+            "version": "1.0",
+            "name": "Soviet Union",
+            "id": "soviet_union",
+            "url": "soviet_union.json",
+            "color": "#C13E3E",
+            "alliance": "allies",
+            "description": "The Soviet Union, while biding its time before the inevitable German offensive, originally had major command and tactics issues. Later in the war, once they were in full swing, they were a very formidable and numerous force to be reckoned with. The Soviets rely on numerous infantry and heroic bravery to defeat their foes with sheer will.",
+            "subfactions": {
+                "infantry_focus": {"name": "Infantry", "id": "infantry_focus", "description": "High quality infantry and anti-tank artillery.", "restricted": true},
+                "armored_focus": {"name": "Armored", "id": "armored_focus", "description": "Mechanized or motorized infantry and deadly armored vehicles.", "restricted": true},
+                "reserves_focus": {"name": "Reserves", "id": "reserves_focus", "description": "Low-quality reserve troops and equipment.", "restricted": true}
+            }
+        },
+        "british": {
+            "version": "1.0",
+            "name": "British",
+            "id": "british",
+            "url": "british.json",
+            "color": "#927331",
+            "alliance": "allies",
+            "description": "The British, while honoring previous treaties and agreements was forced to intervene in Germany's earliest battles. The British were eventually able to overcome their early defeats at the hands of the German forces with the help of their other allied counterparts. The British use a combination of capable armored vehicles, solid infantry and elite trained commando and SAS forces to defeat their enemies.",
+            "subfactions": {
+                "infantry_focus": {"name": "Infantry", "id": "infantry_focus", "description": "High quality infantry and anti-tank artillery.", "restricted": true},
+                "airborne_focus": {"name": "Airborne", "id": "airborne_focus", "description": "Airborne infantry and deceptive sabotage tactics.", "restricted": true},
+                "armored_focus": {"name": "Armored", "id": "armored_focus", "description": "Mechanized or motorized infantry and deadly armored vehicles.", "restricted": true}
+            }
+        },
+        "france": {
+            "version": "1.0",
+            "name": "France",
+            "id": "france",
+            "url": "france.json",
+            "color": "#395A94",
+            "alliance": "allies",
+            "description": "France, still focused on their success in the first World War, placed heavy emphasis on static and sparse armored forces which were quickly overwhelmed by new German military tactics. The French continue to use first war trench fighting and artillery tactics to defeat their enemies.",
+            "subfactions": {
+                "infantry_focus": {"name": "Infantry", "id": "infantry_focus", "description": "High quality infantry and anti-tank artillery.", "restricted": true},
+                "armored_focus": {"name": "Armored", "id": "armored_focus", "description": "Mechanized or motorized infantry and deadly armored vehicles.", "restricted": true}
+            }
+        },
+        "australia": {
+            "version": "1.0",
+            "name": "Australia",
+            "id": "australia",
+            "url": "australia.json",
+            "color": "#008373",
+            "alliance": "allies",
+            "description": "Australia fought alongside the allies in many important battles, while also attempting to defend their homeland from a possible Japanese invasion. Australia relies on many armaments lent by the British as well as their own inspired troops to achieve victory.",
+            "subfactions": {
+                "infantry_focus": {"name": "Infantry", "id": "infantry_focus", "description": "High quality infantry and anti-tank artillery.", "restricted": true},
+                "airborne_focus": {"name": "Airborne", "id": "airborne_focus", "description": "Airborne infantry and deceptive sabotage tactics.", "restricted": true},
+                "armored_focus": {"name": "Armored", "id": "armored_focus", "description": "Mechanized or motorized infantry and deadly armored vehicles.", "restricted": true}
+            }
+        },
+        "canada": {
+            "version": "1.0",
+            "name": "Canada",
+            "id": "canada",
+            "url": "canada.json",
+            "color": "#47576F",
+            "alliance": "allies",
+            "description": "Beginning all the way in 1939, Canada supplied troops to the British Expeditionary forces to help the French in the defense of their homeland. Canada would go on to participate in many major offensives in the war such as the invasion of Normandy and the attack on the Rhineland. Canada primarily used British equipment supplemented with some of their own designs.",
+            "subfactions": {
+                "infantry_focus": {"name": "Infantry", "id": "infantry_focus", "description": "High quality infantry and anti-tank artillery.", "restricted": true},
+                "airborne_focus": {"name": "Airborne", "id": "airborne_focus", "description": "Airborne infantry and deceptive sabotage tactics.", "restricted": true},
+                "armored_focus": {"name": "Armored", "id": "armored_focus", "description": "Mechanized or motorized infantry and deadly armored vehicles.", "restricted": true}
+            }
+        },
+        "hungary": {
+            "version": "1.0",
+            "name": "Hungary",
+            "id": "hungary",
+            "url": "hungary.json",
+            "color": "#006354",
+            "alliance": "axis",
+            "description": "Starting with participation in the invasion of Yugoslavia, Hungary officially joined the Axis powers and later participated in the invasion of the Soviet Union. This would quickly turn to defeat as the Soviet Union later swept through and occupied parts of Hungary. The Hungarians relied on both German equipment and some home-developed arms and equipment such as their own unique tank designs.",
+            "subfactions": {
+                "infantry_focus": {"name": "Infantry", "id": "infantry_focus", "description": "High quality infantry and anti-tank artillery.", "restricted": true},
+                "airborne_focus": {"name": "Airborne", "id": "airborne_focus", "description": "Airborne infantry and deceptive sabotage tactics.", "restricted": true},
+                "armored_focus": {"name": "Armored", "id": "armored_focus", "description": "Mechanized or motorized infantry and deadly armored vehicles.", "restricted": true}
+            }
+        },
+        "italy": {
+            "version": "1.0",
+            "name": "Italy",
+            "id": "italy",
+            "url": "italy.json",
+            "color": "#BD9326",
+            "alliance": "axis",
+            "description": "Unprepared for a long conflict, Italy began annexing smaller territories before the war broke out. As the war went on, Italy increased its ambitions with some success. Ultimately Italy found itself fighting nearly all of the major allied powers which would prove to be too much to handle. Italy relies on strong infantry and some lighter support tanks along with decent tank destroyers to defeat its enemies.",
+            "subfactions": {
+                "infantry_focus": {"name": "Infantry", "id": "infantry_focus", "description": "High quality infantry and anti-tank artillery.", "restricted": true},
+                "airborne_focus": {"name": "Airborne", "id": "airborne_focus", "description": "Airborne infantry and deceptive sabotage tactics.", "restricted": true},
+                "armored_focus": {"name": "Armored", "id": "armored_focus", "description": "Mechanized or motorized infantry and deadly armored vehicles.", "restricted": true}
+            }
+        },
+        "china": {
+            "version": "1.0",
+            "name": "China",
+            "id": "china",
+            "url": "china.json",
+            "color": "#0e3391",
+            "alliance": "allies",
+            "description": "With Over 250 million people and decades of decay from civil-war and warlords fighting each other, China entered the 'War of Resistance against Japanese Aggression' in a tough spot. China was a nation of extremes, with some of the bravest and most cowardly men in the war, according to written accounts. With so many people scrambling to repell the Japanese, in their own way, with their own backers and supply lines, China could almost be viewed as three or four nations just by itself.",
+            "subfactions": {
+                "china_communist": {
+                    "name": "China (United Front)",
+                    "phase": "activation",
+                    "id": "china_communist",
+                    "description": "With Japan invading with great brutality and superior technological development, a temporary ceasefire was brokered from the most powerful men in the nationalist and communist factions. The foreign threat was too great, for now they would work together. Politics could after the war.",
+                    "restricted": true
+                },
+                "china_nationalist": {
+                    "name": "China (Chiang Kai-shek)",
+                    "phase": "activation",
+                    "id": "china_nationalist",
+                    "description": "His Excellency, Generalissimo, Chiang Kai-shek technically on paper was the elected ruler of the nation",
+                    "restricted": true
+                },
+                "china_western": {"name": "China (Westernized)", "phase": "activation", "id": "china_western", "description": "", "restricted": true},
+                "china_yan": {"name": "China (Yan Xishan)", "phase": "activation", "id": "china_yan", "description": "", "restricted": true}
+            }
+        },
+        "brazil": {
+            "version": "1.0",
+            "name": "Brazil",
+            "id": "brazil",
+            "url": "brazil.json",
+            "color": "#45a35c",
+            "alliance": "allies",
+            "description": "Starting the war as a neutral power, Brazil began to suppor the allied war effort with air bases in its territory. Eventually war was delcared ont he axis powers and an expeditiary force was set up mostly equipped by the US. Brazil has an interesting mix of USA equipment and unique ways to use it.",
+            "subfactions": {"infantry_focus": {"name": "Infantry", "id": "infantry_focus", "description": "High quality infantry and anti-tank artillery.", "restricted": true}}
+        }
+    },
+    "unfinished_factions": {
+        "partisans": {"name": "Partisans", "id": "partisans", "url": "partisans.json", "color": "#014140"},
+        "vichy_france": {"name": "Vichy France", "id": "vichy_france", "url": "vichy_france.json", "color": "#203850", "alliance": "axis"},
+        "romania": {"name": "Romania", "id": "romania", "url": "romania.json", "color": "#4f2c26", "alliance": "axis"},
+        "italy": {"name": "Italy", "id": "italy", "url": "italy.json", "color": "#BD9326", "alliance": "axis"},
+        "greece": {"name": "Greece", "id": "greece", "url": "greece.json", "color": "#729263", "alliance": "allies"},
+        "belgium": {"name": "Belgium", "id": "france", "url": "belgium.json", "color": "#968164", "alliance": "allies"},
+        "poland": {"name": "Poland", "id": "poland", "url": "poland.json", "color": "#D83658", "alliance": "allies"}
+    },
+    "categories": {
+        "command": {"name": "Command"},
+        "infantry": {"name": "Infantry"},
+        "support": {"name": "Support"},
+        "artillery": {"name": "Artillery"},
+        "light_vehicles": {"name": "Light Vehicles"},
+        "heavy_vehicles": {"name": "Heavy Vehicles"},
+        "transport": {"name": "Transport"},
+        "aircraft": {"name": "Aircraft"},
+        "fortifications": {"name": "Fortifications"}
+    },
+    "alliances": {"axis": {"name": "Axis Powers"}, "allies": {"name": "Allied Powers"}},
+    "relics": {
+        "improvised_armor": {
+            "type": "equipment",
+            "name": "Improvised Armor",
+            "rule": "improvised_armor",
+            "flavor": "Armored vehicles would sometimes add bits of kit to the outside of tanks for extra protection.",
+            "description": "Upgrade one _Vehicle_ unit with Improvised Armor.",
+            "points": 10
+        },
+        "tank_ace": {
+            "name": "Tank Ace",
+            "rule": "tank_ace",
+            "flavor": "A tank ace is a fearsome foe to encounter on the battlefield.",
+            "description": "Upgrade one _Tank_ unit with Tank Ace.",
+            "points": 15
+        },
+        "inspiring_leader": {
+            "name": "Inspiring Leader",
+            "rule": "inspiring_leader",
+            "flavor": "A leader who can motivate his/her men to keep fighting is a key asset.",
+            "description": "Upgrade one _Leader_ model with Inspiring Leader.",
+            "points": 5
+        }
+    },
+    "powers": {},
+    "organizations": {
+        "infantry_platoon": {
+            "name": "Infantry Platoon",
+            "cost": 0,
+            "description": "A well-rounded force for taking on any opponent.",
+            "categories": {
+                "command": {"min": 1, "max": 2},
+                "infantry": {"min": 2, "max": 5},
+                "support": {"max": 5},
+                "artillery": {"max": 2},
+                "light_vehicles": {"max": 1},
+                "heavy_vehicles": {"max": 1},
+                "transport": {"max": 2},
+                "aircraft": {"max": 2},
+                "fortifications": {"max": 4}
+            }
+        },
+        "artillery_platoon": {
+            "name": "Artillery Platoon",
+            "cost": 1,
+            "description": "A platoon focused on support units and heavy guns.",
+            "categories": {
+                "command": {"min": 1, "max": 2},
+                "infantry": {"min": 2, "max": 3},
+                "support": {"max": 6},
+                "artillery": {"max": 4},
+                "light_vehicles": {"max": 1},
+                "heavy_vehicles": {"max": 0},
+                "transport": {"max": 3},
+                "aircraft": {"max": 2},
+                "fortifications": {"max": 6}
+            }
+        },
+        "mechanized_platoon": {
+            "name": "Mechanized/Motorized Platoon",
+            "cost": 1,
+            "description": "A mobile force equipped with mechanized or motorized transports.",
+            "categories": {
+                "command": {"min": 1, "max": 2},
+                "infantry": {"min": 2, "max": 5},
+                "support": {"max": 4},
+                "artillery": {"max": 2},
+                "light_vehicles": {"max": 2},
+                "heavy_vehicles": {"max": 1},
+                "transport": {"min": 2, "max": 5},
+                "aircraft": {"max": 2},
+                "fortifications": {"max": 2}
+            }
+        },
+        "armored_platoon": {
+            "name": "Armored Platoon",
+            "cost": 1,
+            "description": "An armored force with supporting motorized or mechanized Infantry.",
+            "categories": {
+                "command": {"min": 1, "max": 2},
+                "infantry": {"min": 2, "max": 3},
+                "support": {"max": 3},
+                "artillery": {"max": 0},
+                "light_vehicles": {"max": 2},
+                "heavy_vehicles": {"max": 3},
+                "transport": {"max": 3},
+                "aircraft": {"max": 2},
+                "fortifications": {"max": 2}
+            }
+        },
+        "support_platoon": {
+            "name": "Supporting Platoon",
+            "cost": 1,
+            "description": "A small supporting platoon.",
+            "categories": {
+                "command": {"max": 1},
+                "infantry": {"max": 2},
+                "support": {"max": 3},
+                "artillery": {"max": 2},
+                "light_vehicles": {"max": 1},
+                "heavy_vehicles": {"max": 1},
+                "transport": {"max": 2},
+                "aircraft": {"max": 1},
+                "fortifications": {"max": 3}
+            }
+        }
+    },
+    "weapons": {
+        "unarmed": {"name": "Unarmed (Melee)", "short": "Melee", "attacks": 1},
+        "flag": {"name": "Flag (Melee)", "short": "Melee", "attacks": 1, "ap": 1, "rules": ["flag_bearer"]},
+        "frag_grenades": {"name": "Frags", "attacks": 1, "short": 6, "ap": 1, "rules": ["grenade", {"id": "blast", "x": 3}]},
+        "at_grenades": {"name": "AT Grenade", "attacks": 1, "short": 6, "ap": 8, "rules": [{"id": "ammo", "x": 1}]},
+        "molotov_cocktails": {
+            "name": "Molotov Cocktail",
+            "profiles": [
+                {"name": "AT", "attacks": 1, "short": 6, "ap": 6, "rules": [{"id": "ammo", "x": 1}]},
+                {"name": "Flame", "attacks": 1, "short": 6, "ap": 1, "rules": ["flame", {"id": "blast", "x": 2}, {"id": "ammo", "x": 1}]}
+            ]
+        },
+        "bundle_grenades": {
+            "name": "Bundle Grenade",
+            "profiles": [
+                {"name": "AT", "attacks": 1, "short": 6, "ap": 7, "rules": [{"id": "ammo", "x": 1}]},
+                {"name": "Concussion Blast", "attacks": 1, "short": 6, "ap": 1, "rules": [{"id": "blast", "x": 4}, {"id": "ammo", "x": 1}]}
+            ]
+        },
+        "pistol": {"name": "Pistol", "short": 6, "attacks": 1, "rules": ["pistol"]},
+        "assault_pistol": {"name": "Assault Pistol", "short": 6, "attacks": 2, "rules": ["assault", "pistol"]},
+        "smoke_grenades": {"name": "Smokes", "attacks": 1, "short": 6, "rules": ["grenade", "smoke", "indirect"]},
+        "rifle": {"name": "Rifle", "short": 12, "medium": 24, "attacks": 1},
+        "rifle_grenade": {
+            "name": "Rifle Grenade",
+            "profiles": [{"name": "Rifle", "short": 12, "medium": 24, "attacks": 1}, {"name": "Grenade", "short": 6, "medium": 12, "attacks": 1, "ap": 1, "rules": [{"id": "blast", "x": 2}]}]
+        },
+        "very_light_mortar": {
+            "name": "Very Light Mortar",
+            "profiles": [
+                {"name": "HE", "short": 18, "medium": 36, "attacks": 1, "ap": 1, "rules": [{"id": "blast", "x": 2}]},
+                {"name": "Smoke", "short": 18, "medium": 36, "attacks": 1, "rules": ["smoke"]}
+            ]
+        },
+        "bamboo_spear": {"name": "Spear", "short": "Melee", "attacks": 1, "ap": 1},
+        "sniper_rifle": {"name": "Sniper Rifle", "short": 18, "medium": 36, "attacks": 1, "ap": 2, "rules": ["sniper", {"id": "team", "x": 2}]},
+        "semi_auto_rifle": {"name": "Semi-Auto Rifle", "short": 12, "medium": 24, "attacks": 1, "rules": ["rapid_fire"]},
+        "scoped_semi_auto_rifle": {"name": "Scoped Semi-Auto Rifle", "short": 12, "medium": 24, "attacks": 1, "rules": ["rapid_fire", "scoped"]},
+        "carbine_rifle": {"name": "Carbine", "short": 9, "medium": 18, "attacks": 1, "rules": ["assault"]},
+        "semi_auto_carbine_rifle": {"name": "Semi-Auto Carbine", "short": 9, "medium": 18, "attacks": 1, "rules": ["assault", "rapid_fire"]},
+        "smg": {"name": "SMG", "short": 6, "medium": 12, "attacks": 2, "rules": ["assault"]},
+        "shotgun": {"name": "Shotgun", "short": 6, "medium": 12, "ap": 1, "attacks": 1, "rules": ["assault"]},
+        "auto_shotgun": {"name": "Shotgun", "short": 6, "medium": 12, "ap": 1, "attacks": 1, "rules": ["rapid_fire"]},
+        "assault_rifle": {"name": "Assault Rifle", "short": 12, "medium": 24, "attacks": 2, "rules": ["assault"]},
+        "scoped_assault_rifle": {"name": "Scoped Assault Rifle", "short": 12, "medium": 24, "attacks": 2, "rules": ["scoped", "assault"]},
+        "belt_lmg": {"name": "Belt-fed LMG", "short": 15, "medium": 30, "attacks": 4, "rules": [{"id": "team", "x": 2}]},
+        "box_lmg": {"name": "Box-fed LMG", "short": 15, "medium": 30, "attacks": 3},
+        "mag_lmg": {"name": "Magazine-fed LMG", "short": 18, "medium": 36, "attacks": 2},
+        "bar": {"name": "BAR", "short": 18, "medium": 36, "attacks": 2, "rules": ["assault"]},
+        "assault_lmg": {"name": "Assault LMG", "short": 15, "medium": 30, "attacks": 2, "rules": ["assault"]},
+        "mmg": {"name": "Medium MG", "short": 18, "medium": 36, "attacks": 5, "ap": 1},
+        "dual_mmg": {"name": "Dual Medium MG", "short": 18, "medium": 36, "attacks": 8, "ap": 1},
+        "mmg_aa": {"name": "Medium MG (AA)", "short": 18, "medium": 36, "attacks": 5, "ap": 1, "rules": ["anti_air"]},
+        "lmg_aircraft": {"name": "Aircraft LMG", "short": 18, "medium": 36, "attacks": 3, "rules": ["anti_air"]},
+        "mmg_aircraft": {"name": "Aircraft MG", "short": 18, "medium": 36, "attacks": 3, "ap": 1, "rules": ["anti_air"]},
+        "hmg_aircraft": {"name": "Aircraft HMG", "short": 18, "medium": 36, "attacks": 3, "ap": 2, "rules": ["anti_air"]},
+        "hmg": {"name": "Heavy MG", "short": 18, "medium": 36, "attacks": 5, "ap": 2},
+        "hmg_aa": {"name": "Heavy MG (AA)", "short": 18, "medium": 36, "attacks": 5, "ap": 2, "rules": ["anti_air"]},
+        "twin_hmg_aa": {"name": "Twin Heavy MG (AA)", "short": 18, "medium": 36, "attacks": 8, "ap": 2, "rules": ["anti_air"]},
+        "mmg_internal": {"name": "Medium MG (Internal)", "short": 18, "medium": 36, "ap": 1, "attacks": 5},
+        "flamethrower": {
+            "name": "Flamethrower",
+            "profiles": [
+                {"name": "Stream", "short": 6, "medium": 12, "ap": 5, "attacks": 2, "rules": ["flame", {"id": "shocking", "x": 2}]},
+                {"name": "Spray", "short": 6, "medium": 12, "ap": 2, "attacks": 5, "rules": ["flame", {"id": "shocking", "x": 2}]}
+            ]
+        },
+        "vehicle_flamethrower": {
+            "name": "Flamethrower (Vehicle)",
+            "profiles": [
+                {"name": "Stream", "short": 12, "medium": 24, "ap": 5, "attacks": 2, "rules": ["flame", {"id": "shocking", "x": 2}]},
+                {"name": "Spray", "short": 12, "medium": 24, "ap": 2, "attacks": 5, "rules": ["flame", {"id": "shocking", "x": 2}]}
+            ]
+        },
+        "vehicle_flamethrower_mg": {
+            "name": "Flamethrower (Vehicle)/Co-ax MG",
+            "profiles": [
+                {"name": "Stream", "short": 12, "medium": 24, "ap": 5, "attacks": 2, "rules": ["flame", {"id": "shocking", "x": 2}]},
+                {"name": "Spray", "short": 12, "medium": 24, "ap": 2, "attacks": 5, "rules": ["flame", {"id": "shocking", "x": 2}]},
+                {"name": "MG", "short": 18, "medium": 36, "attacks": 5, "ap": 1}
+            ]
+        },
+        "at_rifle": {"name": "AT Rifle", "short": 18, "medium": 36, "ap": 4, "attacks": 1, "rules": [{"id": "team", "x": 2}]},
+        "at_rifle_mg": {
+            "name": "AT Rifle/Co-ax MG",
+            "profiles": [{"name": "AT Rifle", "short": 18, "medium": 36, "ap": 4, "attacks": 1}, {"name": "MG", "short": 18, "medium": 36, "attacks": 5, "ap": 1}]
+        },
+        "light_autocannon": {
+            "name": "Light Autocannon",
+            "profiles": [{"name": "AT", "short": 24, "medium": 48, "ap": 4, "attacks": 2}, {"name": "HE", "short": 24, "medium": 48, "ap": 2, "attacks": 2, "rules": [{"id": "blast", "x": 2}]}]
+        },
+        "light_autocannon_mg": {
+            "name": "Light Autocannon/Co-ax MG",
+            "profiles": [
+                {"name": "AT", "short": 24, "medium": 48, "ap": 4, "attacks": 2},
+                {"name": "HE", "short": 24, "medium": 48, "ap": 2, "attacks": 2, "rules": [{"id": "blast", "x": 2}]},
+                {"name": "MG", "short": 18, "medium": 36, "attacks": 5, "ap": 1}
+            ]
+        },
+        "light_autocannon_aa": {
+            "name": "Light Autocannon (AA)",
+            "profiles": [
+                {"name": "AT", "short": 24, "medium": 48, "ap": 4, "attacks": 2, "rules": ["anti_air"]},
+                {"name": "HE", "short": 24, "medium": 48, "ap": 2, "attacks": 2, "rules": ["anti_air", {"id": "blast", "x": 2}]}
+            ]
+        },
+        "heavy_autocannon": {
+            "name": "Heavy Autocannon",
+            "profiles": [{"name": "AT", "short": 24, "medium": 48, "ap": 5, "attacks": 2}, {"name": "HE", "short": 24, "medium": 48, "ap": 3, "attacks": 2, "rules": [{"id": "blast", "x": 3}]}]
+        },
+        "heavy_autocannon_aa": {
+            "name": "Heavy Autocannon (AA)",
+            "profiles": [
+                {"name": "AT", "short": 24, "medium": 48, "ap": 5, "attacks": 2, "rules": ["anti_air"]},
+                {"name": "HE", "short": 24, "medium": 48, "ap": 3, "attacks": 2, "rules": [{"id": "blast", "x": 3}, "anti_air"]}
+            ]
+        },
+        "smoke_battery": {"name": "Smoke Barrage (Off-table Battery)", "profiles": [{"name": "Smoke", "short": 18, "medium": 36, "attacks": 3, "rules": ["indirect", "smoke"]}]},
+        "light_mortar_battery": {
+            "name": "Light Mortar (Off-table Battery)",
+            "profiles": [
+                {"name": "HE", "short": 18, "medium": 36, "attacks": 2, "ap": 2, "rules": ["indirect", "scatter", {"id": "blast", "x": 3}]},
+                {"name": "Smoke", "short": 18, "medium": 36, "attacks": 3, "rules": ["indirect", "smoke", "scatter"]}
+            ]
+        },
+        "medium_mortar_battery": {
+            "name": "Medium Mortar (Off-table Battery)",
+            "profiles": [
+                {"name": "HE", "short": 18, "medium": 36, "attacks": 2, "ap": 3, "rules": ["indirect", "scatter", {"id": "blast", "x": 4}]},
+                {"name": "Smoke", "short": 18, "medium": 36, "attacks": 3, "rules": ["indirect", "scatter", "smoke"]}
+            ]
+        },
+        "heavy_mortar_battery": {
+            "name": "Heavy Mortar (Off-table Battery)",
+            "profiles": [
+                {"name": "HE", "short": 18, "medium": 36, "attacks": 2, "ap": 4, "rules": ["indirect", "scatter", {"id": "blast", "x": 5}]},
+                {"name": "Smoke", "short": 18, "medium": 36, "attacks": 3, "rules": ["indirect", "scatter", "smoke"]}
+            ]
+        },
+        "rocket_battery": {
+            "name": "Rocket Salvo (Off-table Battery)",
+            "profiles": [
+                {"name": "HE", "short": 18, "medium": 36, "attacks": 3, "ap": 3, "rules": ["indirect", "scatter", "salvo", {"id": "blast", "x": 4}]},
+                {"name": "Smoke", "short": 18, "medium": 36, "attacks": 3, "rules": ["indirect", "scatter", "smoke"]}
+            ]
+        },
+        "nebelwerfer_battery": {
+            "name": "Nebelwerfer (Off-table Battery)",
+            "profiles": [
+                {"name": "HE", "short": 18, "medium": 36, "attacks": 4, "ap": 3, "rules": ["indirect", "scatter", "salvo", {"id": "blast", "x": 4}]},
+                {"name": "Smoke", "short": 18, "medium": 36, "attacks": 4, "rules": ["indirect", "scatter", "smoke"]}
+            ]
+        },
+        "light_mortar": {
+            "name": "Light Mortar",
+            "profiles": [
+                {"name": "HE", "short": 24, "medium": 48, "attacks": 1, "ap": 2, "rules": ["indirect", "scatter", {"id": "blast", "x": 3}]},
+                {"name": "Smoke", "short": 24, "medium": 48, "attacks": 1, "rules": ["smoke", "scatter"]}
+            ]
+        },
+        "medium_mortar": {
+            "name": "Medium Mortar",
+            "profiles": [
+                {"name": "HE", "short": 30, "medium": 60, "attacks": 1, "ap": 3, "rules": ["indirect", "scatter", {"id": "blast", "x": 4}]},
+                {"name": "Smoke", "short": 30, "medium": 60, "attacks": 1, "rules": ["smoke", "scatter"]}
+            ]
+        },
+        "heavy_mortar": {
+            "name": "Heavy Mortar",
+            "profiles": [
+                {"name": "HE", "short": 36, "medium": 72, "attacks": 1, "ap": 4, "rules": ["indirect", "scatter", {"id": "blast", "x": 5}]},
+                {"name": "Smoke", "short": 36, "medium": 72, "attacks": 1, "rules": ["smoke", "scatter"]}
+            ]
+        },
+        "very_light_howitzer": {
+            "name": "Very Light Howitzer",
+            "profiles": [{"name": "HE", "short": 18, "medium": 36, "attacks": 1, "ap": 2, "rules": ["indirect", "scatter", {"id": "blast", "x": 4}]}]
+        },
+        "light_rockets": {"name": "Light Rockets", "profiles": [{"name": "HE", "short": 24, "medium": 48, "attacks": 1, "ap": 3, "rules": ["indirect", "salvo", "scatter", {"id": "blast", "x": 3}]}]},
+        "heavy_rockets": {"name": "Heavy Rockets", "profiles": [{"name": "HE", "short": 30, "medium": 60, "attacks": 1, "ap": 4, "rules": ["indirect", "salvo", "scatter", {"id": "blast", "x": 4}]}]},
+        "light_howitzer_vehicle": {
+            "name": "Light Howitzer (Vehicle)",
+            "profiles": [{"name": "HE", "short": 24, "medium": 48, "attacks": 1, "ap": 3, "rules": ["indirect", "scatter", {"id": "blast", "x": 5}]}]
+        },
+        "light_howitzer_vehicle_mg": {
+            "name": "Light Howitzer (Vehicle)/Co-ax MG",
+            "profiles": [
+                {"name": "HE", "short": 24, "medium": 48, "attacks": 1, "ap": 3, "rules": ["indirect", "scatter", {"id": "blast", "x": 5}]},
+                {"name": "MG", "short": 18, "medium": 36, "attacks": 5, "ap": 1}
+            ]
+        },
+        "light_howitzer": {"name": "Light Howitzer", "profiles": [{"name": "HE", "short": 24, "medium": 48, "attacks": 1, "ap": 3, "rules": ["indirect", "scatter", {"id": "blast", "x": 5}]}]},
+        "light_howitzer_light_at": {
+            "name": "Light Howitzer/Light AT",
+            "profiles": [
+                {"name": "HE", "short": 24, "medium": 48, "attacks": 1, "ap": 3, "rules": ["indirect", "scatter", {"id": "blast", "x": 5}]},
+                {"name": "AT", "short": 24, "medium": 48, "attacks": 1, "ap": 6}
+            ]
+        },
+        "medium_howitzer": {"name": "Medium Howitzer", "profiles": [{"name": "HE", "short": 30, "medium": 60, "attacks": 1, "ap": 4, "rules": ["indirect", "scatter", {"id": "blast", "x": 6}]}]},
+        "medium_howitzer_vehicle": {
+            "name": "Medium Howitzer (Vehicle)",
+            "profiles": [{"name": "HE", "short": 30, "medium": 60, "attacks": 1, "ap": 4, "rules": ["indirect", "scatter", {"id": "blast", "x": 6}]}]
+        },
+        "medium_howitzer_vehicle_mg": {
+            "name": "Medium Howitzer (Vehicle)/Co-ax MG",
+            "profiles": [
+                {"name": "HE", "short": 30, "medium": 60, "attacks": 1, "ap": 4, "rules": ["indirect", "scatter", {"id": "blast", "x": 6}]},
+                {"name": "MG", "short": 18, "medium": 36, "attacks": 5, "ap": 1}
+            ]
+        },
+        "medium_howitzer_vehicle_medium_at": {
+            "name": "Medium Howitzer (Vehicle)/Medium AT",
+            "profiles": [
+                {"name": "HE", "short": 30, "medium": 60, "attacks": 1, "ap": 4, "rules": ["indirect", "scatter", {"id": "blast", "x": 6}]},
+                {"name": "AT", "short": 30, "medium": 60, "attacks": 1, "ap": 7}
+            ]
+        },
+        "heavy_howitzer": {"name": "Heavy Howitzer", "profiles": [{"name": "HE", "short": 36, "medium": 72, "attacks": 1, "ap": 5, "rules": ["indirect", "scatter", {"id": "blast", "x": 7}]}]},
+        "heavy_howitzer_vehicle": {
+            "name": "Heavy Howitzer (Vehicle)",
+            "profiles": [{"name": "HE", "short": 36, "medium": 72, "attacks": 1, "ap": 5, "rules": ["indirect", "scatter", {"id": "blast", "x": 7}]}]
+        },
+        "heavy_howitzer_vehicle_mg": {
+            "name": "Heavy Howitzer (Vehicle)/Co-ax MG",
+            "profiles": [
+                {"name": "HE", "short": 36, "medium": 72, "attacks": 1, "ap": 5, "rules": ["indirect", "scatter", {"id": "blast", "x": 7}]},
+                {"name": "MG", "short": 18, "medium": 36, "attacks": 5, "ap": 1}
+            ]
+        },
+        "very_heavy_howitzer": {
+            "name": "Very Heavy Howitzer",
+            "profiles": [{"name": "HE", "short": 42, "medium": 84, "attacks": 1, "ap": 6, "rules": ["indirect", "scatter", {"id": "blast", "x": 8}]}]
+        },
+        "rocket_mortar": {"name": "Rocket Mortar", "profiles": [{"name": "HE", "short": 18, "medium": 36, "attacks": 1, "ap": 5, "rules": ["indirect", "scatter", {"id": "blast", "x": 8}]}]},
+        "very_light_at": {
+            "name": "Very Light AT",
+            "profiles": [{"name": "HE", "short": 18, "medium": 36, "attacks": 1, "ap": 1, "rules": [{"id": "blast", "x": 3}]}, {"name": "AT", "short": 18, "medium": 36, "attacks": 1, "ap": 5}]
+        },
+        "very_light_at_mg": {
+            "name": "Very Light AT/Co-ax MG",
+            "profiles": [
+                {"name": "HE", "short": 18, "medium": 36, "attacks": 1, "ap": 1, "rules": [{"id": "blast", "x": 3}]},
+                {"name": "AT", "short": 18, "medium": 36, "attacks": 1, "ap": 5},
+                {"name": "MG", "short": 18, "medium": 36, "attacks": 5, "ap": 1}
+            ]
+        },
+        "light_at": {
+            "name": "Light AT",
+            "profiles": [{"name": "HE", "short": 24, "medium": 48, "attacks": 1, "ap": 2, "rules": [{"id": "blast", "x": 4}]}, {"name": "AT", "short": 24, "medium": 48, "attacks": 1, "ap": 6}]
+        },
+        "light_at_improved": {
+            "name": "Light AT Improved",
+            "profiles": [
+                {"name": "HE", "short": 24, "medium": 48, "attacks": 1, "ap": 2, "rules": [{"id": "blast", "x": 4}]},
+                {"name": "AT", "short": 24, "medium": 48, "attacks": 1, "ap": 6, "rules": ["improved"]}
+            ]
+        },
+        "light_at_lmg": {
+            "name": "Light AT/Co-ax LMG",
+            "profiles": [
+                {"name": "HE", "short": 24, "medium": 48, "attacks": 1, "ap": 2, "rules": [{"id": "blast", "x": 4}]},
+                {"name": "AT", "short": 24, "medium": 48, "attacks": 1, "ap": 6},
+                {"name": "MG", "short": 18, "medium": 36, "attacks": 3}
+            ]
+        },
+        "light_at_mg": {
+            "name": "Light AT/Co-ax MG",
+            "profiles": [
+                {"name": "HE", "short": 24, "medium": 48, "attacks": 1, "ap": 2, "rules": [{"id": "blast", "x": 4}]},
+                {"name": "AT", "short": 24, "medium": 48, "attacks": 1, "ap": 6},
+                {"name": "MG", "short": 18, "medium": 36, "attacks": 5, "ap": 1}
+            ]
+        },
+        "medium_at": {
+            "name": "Medium AT",
+            "profiles": [{"name": "HE", "short": 30, "medium": 60, "attacks": 1, "ap": 3, "rules": [{"id": "blast", "x": 5}]}, {"name": "AT", "short": 30, "medium": 60, "attacks": 1, "ap": 7}]
+        },
+        "medium_at_mg_rockets": {
+            "name": "Medium AT/Co-ax MG/Rockets",
+            "profiles": [
+                {"name": "HE", "short": 30, "medium": 60, "attacks": 1, "ap": 3, "rules": [{"id": "blast", "x": 5}]},
+                {"name": "AT", "short": 30, "medium": 60, "attacks": 1, "ap": 7},
+                {"name": "MG", "short": 18, "medium": 36, "attacks": 5, "ap": 1},
+                {"name": "Rockets", "short": 24, "medium": 48, "attacks": 3, "ap": 3, "rules": ["indirect", "salvo", "scatter", {"id": "blast", "x": 3}]}
+            ]
+        },
+        "medium_at_mg": {
+            "name": "Medium AT/Co-ax MG",
+            "profiles": [
+                {"name": "HE", "short": 30, "medium": 60, "attacks": 1, "ap": 3, "rules": [{"id": "blast", "x": 5}]},
+                {"name": "AT", "short": 30, "medium": 60, "attacks": 1, "ap": 7},
+                {"name": "MG", "short": 18, "medium": 36, "attacks": 5, "ap": 1}
+            ]
+        },
+        "medium_at_light_howitzer": {
+            "name": "Medium AT/Light Howitzer",
+            "profiles": [
+                {"name": "HE", "short": 30, "medium": 60, "attacks": 1, "ap": 3, "rules": ["scatter", "indirect", {"id": "blast", "x": 5}]},
+                {"name": "AT", "short": 30, "medium": 60, "attacks": 1, "ap": 7}
+            ]
+        },
+        "heavy_at": {
+            "name": "Heavy AT",
+            "profiles": [{"name": "HE", "short": 36, "medium": 72, "attacks": 1, "ap": 4, "rules": [{"id": "blast", "x": 6}]}, {"name": "AT", "short": 36, "medium": 72, "attacks": 1, "ap": 8}]
+        },
+        "heavy_at_mg": {
+            "name": "Heavy AT/Co-ax MG",
+            "profiles": [
+                {"name": "HE", "short": 36, "medium": 72, "attacks": 1, "ap": 4, "rules": [{"id": "blast", "x": 6}]},
+                {"name": "AT", "short": 36, "medium": 72, "attacks": 1, "ap": 8},
+                {"name": "MG", "short": 18, "medium": 36, "attacks": 5, "ap": 1}
+            ]
+        },
+        "very_heavy_at": {
+            "name": "Very Heavy AT",
+            "profiles": [{"name": "HE", "short": 42, "medium": 84, "attacks": 1, "ap": 5, "rules": [{"id": "blast", "x": 7}]}, {"name": "AT", "short": 42, "medium": 84, "attacks": 1, "ap": 9}]
+        },
+        "very_heavy_at_mg": {
+            "name": "Very Heavy AT/Co-ax MG",
+            "profiles": [
+                {"name": "HE", "short": 42, "medium": 84, "attacks": 1, "ap": 5, "rules": [{"id": "blast", "x": 7}]},
+                {"name": "AT", "short": 42, "medium": 84, "attacks": 1, "ap": 9},
+                {"name": "MG", "short": 18, "medium": 36, "attacks": 5, "ap": 1}
+            ]
+        },
+        "super_heavy_at": {
+            "name": "Super Heavy AT",
+            "profiles": [{"name": "HE", "short": 48, "medium": 96, "attacks": 1, "ap": 6, "rules": [{"id": "blast", "x": 8}]}, {"name": "AT", "short": 42, "medium": 96, "attacks": 1, "ap": 10}]
+        },
+        "super_heavy_at_mg": {
+            "name": "Super Heavy AT/Co-ax MG",
+            "profiles": [
+                {"name": "HE", "short": 48, "medium": 96, "attacks": 1, "ap": 6, "rules": [{"id": "blast", "x": 8}]},
+                {"name": "AT", "short": 48, "medium": 96, "attacks": 1, "ap": 10},
+                {"name": "MG", "short": 18, "medium": 36, "attacks": 5, "ap": 1}
+            ]
+        },
+        "light_aircraft_rocket": {
+            "name": "Light Air Rocket",
+            "profiles": [{"name": "HE", "short": 18, "medium": 36, "attacks": 1, "ap": 3, "rules": [{"id": "ammo", "x": 1}, {"id": "blast", "x": 3}]}]
+        },
+        "heavy_aircraft_rocket": {
+            "name": "Heavy Air Rocket",
+            "profiles": [{"name": "HE", "short": 24, "medium": 48, "attacks": 1, "ap": 4, "rules": [{"id": "ammo", "x": 1}, {"id": "blast", "x": 4}]}]
+        },
+        "at_bomb": {"name": "AT Bomb", "profiles": [{"name": "AT", "short": 6, "attacks": 1, "ap": 6, "rules": ["bomb", "scatter", {"id": "ammo", "x": 1}, {"id": "blast", "x": 4}]}]},
+        "light_bomb": {"name": "Light Bomb", "profiles": [{"name": "HE", "short": 6, "attacks": 1, "ap": 2, "rules": ["bomb", "scatter", {"id": "ammo", "x": 1}, {"id": "blast", "x": 4}]}]},
+        "fire_bomb": {"name": "Fire Bomb", "profiles": [{"name": "HE", "short": 6, "attacks": 1, "ap": 2, "rules": ["bomb", "scatter", "flame", {"id": "ammo", "x": 1}, {"id": "blast", "x": 6}]}]},
+        "medium_bomb": {"name": "Medium Bomb", "profiles": [{"name": "HE", "short": 6, "attacks": 1, "ap": 3, "rules": ["bomb", "scatter", {"id": "ammo", "x": 1}, {"id": "blast", "x": 5}]}]},
+        "heavy_bomb": {"name": "Heavy Bomb", "profiles": [{"name": "HE", "short": 6, "attacks": 1, "ap": 4, "rules": ["bomb", "scatter", {"id": "ammo", "x": 1}, {"id": "blast", "x": 6}]}]},
+        "panzerfaust": {"name": "Panzerfaust", "attacks": 1, "short": 6, "medium": 12, "ap": 8, "rules": ["heat", {"id": "ammo", "x": 1}]},
+        "panzerschreck": {"name": "Panzerschreck", "short": 12, "medium": 24, "ap": 8, "attacks": 1, "rules": ["heat", {"id": "team", "x": 2}]},
+        "bazooka": {"name": "Bazooka", "short": 12, "medium": 24, "ap": 7, "attacks": 1, "rules": ["heat", {"id": "team", "x": 2}]},
+        "piat": {"name": "Piat", "short": 6, "medium": 12, "ap": 7, "attacks": 1, "rules": [{"id": "team", "x": 2}, "heat", "indirect"]},
+        "lunge_mine": {"name": "Lunge Mine", "attacks": 1, "short": "Melee", "ap": 8, "rules": [{"id": "ammo", "x": 1}]},
+        "sword": {"name": "Sword", "attacks": 1, "short": "Melee", "ap": 1},
+        "officer_sword": {"name": "Officer's Sword", "attacks": 2, "short": "Melee", "ap": 1},
+        "bayonet": {"name": "Bayonet", "attacks": 1, "short": "Melee", "ap": 1},
+        "dadao": {"name": "Dadao", "attacks": 1, "short": "Melee", "ap": 1}
+    },
+    "rules": {
+        "improvised_armor": {"name": "Improvised Armor", "description": "Subtract 1 from all Damage Table(X) rolls for this model.", "points": 10},
+        "heat": {"name": "HEAT", "description": "Enemy units add 1 to rolls on any Damage Table(X) rules when hit by this weapon at Short range.", "points": ["weapon.attacks", {"multiply": 2.5}]},
+        "tank_ace": {"name": "Tank Ace", "description": "This unit gets +1 Accuracy.", "points": 20},
+        "inspiring_leader": {"name": "Inspiring Leader", "description": "This unit and friendly _Infantry_ units within 6\" get +1 Courage.", "points": 10},
+        "airdrop": {"name": "Airdrop", "description": "Set one _Infantry_, _Artillery_ or _Airborne Vehicle_ in _Ambush Reserves_ before the game begins.", "points": 3},
+        "fanatical": {"name": "Fanatical", "description": "This unit is treated as having +2 Courage for all break tests and does not gain shock from close combat.", "points": 2},
+        "body_armor": {"name": "Body Armor", "description": "This model gains +1 Save.", "points": 2},
+        "tank_rider": {"name": "Tank Rider", "description": "This model and its unit may be embarked on Vehicle unit with a save of 11+ as if it had Transport.", "points": 1},
+        "improved": {"name": "Improved", "description": "This weapon gains +1 AP when shooting a target at Short Range.", "points": 5},
+        "mounted_bicycle": {
+            "name": "Mounted(Bicycle)",
+            "description": "Increase this model's Movement by 2\", but it may not use any weapons while mounted. This unit may dismount at the end of any Move action. A unit that has dismounted may no longer remount.",
+            "points": 2
+        },
+        "mounted_horse": {
+            "name": "Mounted(Horse)",
+            "description": "Increase this model's Movement by 2\", but it may not use any ranged weapons other than ranged weapons with the 'assault' or 'pistol' rule/s while mounted. This unit may dismount at the end of any Move action. A unit that has dismounted may no longer remount.",
+            "points": 2
+        },
+        "mounted_motorcycle": {
+            "name": "Mounted(Motorcycle)",
+            "description": "Increase this model's Movement by 2\", but it may not use any weapons while mounted. This unit may dismount at the end of any Move action. A unit that has dismounted may no longer remount.",
+            "points": 2
+        },
+        "side_skirts": {"name": "Side Skirts", "description": "This model gains +1 to its Save when hit in its side arcs from weapons with AP 4 or less.", "points": 5},
+        "gun_shield": {"name": "Gun Shield", "description": "Friendly models gain +1 Save when targeted by attacks which cross this model.", "points": 5},
+        "smoke": {
+            "name": "Smoke",
+            "description": "Choose a location on the battlefield within range of this weapon and if a hit is successful, place a 3\" diameter smoke marker at the target location. If the weapon fires multiple shots and more than one lands on target, place any additional smoke markers in contact with the edge of the first hit. Smoke markers block line of sight and models inside or partially obscured by smoke markers gain the benefit of Soft Cover. At the end of the round, roll a D10 for each smoke marker. On a 5 or less the smoke marker is removed.",
+            "points": [-1]
+        },
+        "tracked": {"name": "Tracked", "description": "This unit may ignore difficult terrain and low obstacles when moving.", "points": 10},
+        "amphibious": {"name": "Amphibious", "description": "This unit may treat impassable water terrain as difficult terrain.", "points": 5},
+        "salvo": {"name": "Salvo", "description": "This weapon always hits at -1 Accuracy. When scattering results from this weapon, it hits the closest unit within 3\" instead of just 1\"."},
+        "half_tracked": {"name": "Half-Tracked", "description": "This unit may ignore difficult terrain when moving.", "points": 5},
+        "team": {
+            "name": "Team",
+            "inputs": ["x"],
+            "description": "This weapon requires X models to operate effectively. It suffers -1 Accuracy for each model under this number.",
+            "points": ["rule.x", {"subtract": 1}, {"multiply": -1}]
+        },
+        "riveted": {"name": "Riveted", "description": "This unit adds +1 to any Damage Table(x) rolls.", "points": -5},
+        "field_orders": {
+            "name": "Field Orders",
+            "inputs": ["x"],
+            "description": "When this unit is activated, choose up to X friendly _Infantry_ units within 6\" to receive one of the following bonuses until the end of the round: \n * Re-roll failed Accuracy tests of 9+ \n * Re-roll failed Strength tests of 9+ \n * +3\" of Movement",
+            "points": [10, {"multiply": "rule.x"}]
+        },
+        "no_retreat": {
+            "name": "No Retreat",
+            "description": "When a friendly _Infantry_ unit within 6\" fails a Courage test, that unit must remove one model to re-roll the test. This effect may be used once per _Infantry_ unit.",
+            "points": 5
+        },
+        "field_orders_armored": {
+            "name": "Armored Field Orders",
+            "inputs": ["x"],
+            "description": "When this unit is activated, choose up to X friendly _Tank_ or _Armored Car_ units within 6\" to receive one of the following bonuses: \n * Re-roll failed Accuracy tests of 9+ \n * Re-roll failed Strength tests of 9+ \n * +3\" of Movement",
+            "points": [20, {"multiply": "rule.x"}]
+        },
+        "anti_infantry_mines": {
+            "name": "Anti-Infantry Mines",
+            "description": "When an _Infantry_ unit crosses this model, roll 8D10. On any rolls of 5 or less that unit takes a hit with AP4.",
+            "points": 50
+        },
+        "anti_tank_mines": {
+            "name": "Anti-Tank Mines",
+            "description": "When a Vehicle unit crosses this model, roll 3D10. On any rolls of 5 or less that unit takes a hit with AP7. The vehicle is treated as being hit in the Rear arc.",
+            "points": 50
+        },
+        "mixed_mines": {
+            "name": "Mixed Mines",
+            "description": "When a unit without Damage Table(x) crosses this model, roll 5D10. On any rolls of 5 or less that unit takes a hit with AP4. When a unit with Damage Table(x) crosses this model, roll 1D10. On any rolls of 5 or less that unit takes a hit with AP7. The vehicle is treated as being hit in the Rear arc.",
+            "points": 50
+        },
+        "wire_cutters": {"name": "Wire Cutters", "description": "This model and its unit gain +3 to all Clear actions when attempting to clear barbed wire obstacles.", "points": 5},
+        "demolition_charges": {"name": "Demolition Charges", "description": "This model and its unit gain +3 to all Clear actions when attempting to barricade and defense obstacles.", "points": 5},
+        "mine_sweepers": {"name": "Mine Sweepers", "description": "This model and its unit gain +3 to all Clear actions when attempting to clear mine fields.", "points": 5},
+        "repair_toolkit": {"name": "Repair Toolkit", "description": "This model and its unit may spend one action to repair one vehicle within 3\" that has suffered critical damage.", "points": 5}
+    },
+    "units": {
+        "forward_medic_post": {
+            "name": "Forward Medic Post",
+            "description": "A medical aid post for treating nearby wounded soldiers.",
+            "category": "fortifications",
+            "keywords": ["Fortification"],
+            "models": [
+                {
+                    "name": "Forward Medic Post",
+                    "courage": "-",
+                    "movement": "-",
+                    "shoot": "-",
+                    "fight": "-",
+                    "defense": 8,
+                    "reflexes": "-",
+                    "weapons": [],
+                    "rules": ["terrain", "medic"],
+                    "min": 1,
+                    "max": 1
+                }
+            ]
+        },
+        "fighting_position_3": {
+            "name": "Fighting Position (Small)",
+            "description": "A group of fighting positions, each with a capacity of 3 models.",
+            "min": 1,
+            "max": 1,
+            "category": "fortifications",
+            "keywords": ["Fortification"],
+            "models": [
+                {
+                    "name": "Fighting Position (Small)",
+                    "courage": "-",
+                    "movement": "-",
+                    "shoot": "-",
+                    "fight": "-",
+                    "defense": "-",
+                    "reflexes": "-",
+                    "rules": ["terrain", {"id": "garrison", "x": 3}, {"id": "soft_cover_x", "x": 3}],
+                    "min": 1,
+                    "max": 6
+                }
+            ]
+        },
+        "fighting_position_5": {
+            "name": "Fighting Position (Medium)",
+            "description": "A group of fighting positions, each with a capacity of 5 models.",
+            "min": 1,
+            "max": 1,
+            "category": "fortifications",
+            "keywords": ["Fortification"],
+            "models": [
+                {
+                    "name": "Fighting Position (Medium)",
+                    "courage": "-",
+                    "movement": "-",
+                    "shoot": "-",
+                    "fight": "-",
+                    "defense": "-",
+                    "reflexes": "-",
+                    "rules": ["terrain", {"id": "garrison", "x": 5}, {"id": "soft_cover_x", "x": 5}],
+                    "min": 1,
+                    "max": 3
+                }
+            ]
+        },
+        "fighting_position_7": {
+            "name": "Fighting Position (Large)",
+            "description": "A group of fighting positions, each with a capacity of 7 models.",
+            "min": 1,
+            "max": 1,
+            "category": "fortifications",
+            "keywords": ["Fortification"],
+            "models": [
+                {
+                    "name": "Fighting Position (Large)",
+                    "courage": "-",
+                    "movement": "-",
+                    "shoot": "-",
+                    "fight": "-",
+                    "defense": "-",
+                    "reflexes": "-",
+                    "rules": ["terrain", {"id": "garrison", "x": 7}, {"id": "soft_cover_x", "x": 7}],
+                    "min": 1,
+                    "max": 1
+                }
+            ]
+        },
+        "wooden_bunker_4": {
+            "name": "Wooden Bunker (Small)",
+            "description": "A group of fighting positions, each with a capacity of 4 models.",
+            "min": 1,
+            "max": 1,
+            "category": "fortifications",
+            "keywords": ["Fortification"],
+            "models": [
+                {
+                    "name": "Wooden Bunker (Small)",
+                    "courage": "-",
+                    "movement": "-",
+                    "shoot": "-",
+                    "fight": "-",
+                    "defense": 11,
+                    "reflexes": "-",
+                    "rules": ["terrain", {"id": "garrison", "x": 4}, {"id": "soft_cover_x", "x": 4}],
+                    "min": 1,
+                    "max": 1
+                }
+            ]
+        },
+        "woooden_bunker_8": {
+            "name": "Wooden Bunker (Medium)",
+            "description": "A group of fighting positions, each with a capacity of 8 models.",
+            "min": 1,
+            "max": 1,
+            "category": "fortifications",
+            "keywords": ["Fortification"],
+            "models": [
+                {
+                    "name": "Wooden Bunker (Medium)",
+                    "courage": "-",
+                    "movement": "-",
+                    "shoot": "-",
+                    "fight": "-",
+                    "defense": 11,
+                    "reflexes": "-",
+                    "rules": ["terrain", {"id": "garrison", "x": 8}, {"id": "soft_cover_x", "x": 8}],
+                    "min": 1,
+                    "max": 1
+                }
+            ]
+        },
+        "wooden_bunker_12": {
+            "name": "Wooden Bunker (Large)",
+            "description": "A group of fighting positions, each with a capacity of 12 models.",
+            "min": 1,
+            "max": 1,
+            "category": "fortifications",
+            "keywords": ["Fortification"],
+            "models": [
+                {
+                    "name": "Wooden Bunker (Large)",
+                    "courage": "-",
+                    "movement": "-",
+                    "shoot": "-",
+                    "fight": "-",
+                    "defense": 11,
+                    "reflexes": "-",
+                    "rules": ["terrain", {"id": "garrison", "x": 12}, {"id": "soft_cover_x", "x": 12}],
+                    "min": 1,
+                    "max": 1
+                }
+            ]
+        },
+        "concrete_bunker_4": {
+            "name": "Concrete Bunker (Small)",
+            "description": "A group of fighting positions, each with a capacity of 4 models.",
+            "min": 1,
+            "max": 1,
+            "category": "fortifications",
+            "keywords": ["Fortification"],
+            "models": [
+                {
+                    "name": "Concrete Bunker (Small)",
+                    "courage": "-",
+                    "movement": "-",
+                    "shoot": "-",
+                    "fight": "-",
+                    "defense": 12,
+                    "reflexes": "-",
+                    "rules": ["terrain", {"id": "garrison", "x": 4}, {"id": "hard_cover_x", "x": 4}],
+                    "min": 1,
+                    "max": 1
+                }
+            ]
+        },
+        "concrete_bunker_8": {
+            "name": "Concrete Bunker (Medium)",
+            "description": "A group of fighting positions, each with a capacity of 8 models.",
+            "min": 1,
+            "max": 1,
+            "category": "fortifications",
+            "keywords": ["Fortification"],
+            "models": [
+                {
+                    "name": "Concrete Bunker (Medium)",
+                    "courage": "-",
+                    "movement": "-",
+                    "shoot": "-",
+                    "fight": "-",
+                    "defense": 12,
+                    "reflexes": "-",
+                    "rules": ["terrain", {"id": "garrison", "x": 8}, {"id": "hard_cover_x", "x": 8}],
+                    "min": 1,
+                    "max": 1
+                }
+            ]
+        },
+        "concrete_bunker_12": {
+            "name": "Concrete Bunker (Large)",
+            "description": "A group of fighting positions, each with a capacity of 12 models.",
+            "min": 1,
+            "max": 1,
+            "category": "fortifications",
+            "keywords": ["Fortification"],
+            "models": [
+                {
+                    "name": "Concrete Bunker (Large)",
+                    "courage": "-",
+                    "movement": "-",
+                    "shoot": "-",
+                    "fight": "-",
+                    "defense": 12,
+                    "reflexes": "-",
+                    "rules": ["terrain", {"id": "garrison", "x": 12}, {"id": "hard_cover_x", "x": 12}],
+                    "min": 1,
+                    "max": 1
+                }
+            ]
+        },
+        "barbed_wire": {
+            "name": "Barbed Wire (8\"x1\" Sections)",
+            "description": "Barbed wire.",
+            "min": 1,
+            "max": 1,
+            "category": "fortifications",
+            "keywords": ["Fortification"],
+            "models": [
+                {
+                    "name": "Barbed Wire (8\"x1\" Section)",
+                    "courage": "-",
+                    "movement": "-",
+                    "shoot": "-",
+                    "fight": "-",
+                    "defense": "-",
+                    "reflexes": "-",
+                    "rules": ["terrain", "clearable", {"id": "impassable", "x": "Infantry, Artillery"}],
+                    "min": 1,
+                    "max": 3
+                }
+            ]
+        },
+        "anti_tank_ditch": {
+            "name": "Anti-Tank Ditch (8\"x1\" Sections)",
+            "description": "Anti-tank ditch.",
+            "min": 1,
+            "max": 1,
+            "category": "fortifications",
+            "keywords": ["Fortification"],
+            "models": [
+                {
+                    "name": "Anti-Tank Ditch (8\"x1\" Section)",
+                    "courage": "-",
+                    "movement": "-",
+                    "shoot": "-",
+                    "fight": "-",
+                    "defense": "-",
+                    "reflexes": "-",
+                    "rules": ["terrain", "clearable", {"id": "impassable", "x": "Vehicle, Artillery"}],
+                    "min": 1,
+                    "max": 3
+                }
+            ]
+        },
+        "trench_section": {
+            "name": "Trench Section (8\"x1\" Sections)",
+            "description": "A prepared trench section.",
+            "min": 1,
+            "max": 1,
+            "category": "fortifications",
+            "keywords": ["Fortification"],
+            "models": [
+                {
+                    "name": "Trench Section (8\"x1\" Section)",
+                    "courage": "-",
+                    "movement": "-",
+                    "shoot": "-",
+                    "fight": "-",
+                    "defense": "-",
+                    "reflexes": "-",
+                    "rules": ["terrain", "hard_cover"],
+                    "min": 1,
+                    "max": 2
+                }
+            ]
+        },
+        "sandbag_wall": {
+            "name": "Sandbag Walls (8\"x1\" Sections)",
+            "description": "A prepared sandbag wall.",
+            "min": 1,
+            "max": 1,
+            "category": "fortifications",
+            "keywords": ["Fortification"],
+            "models": [
+                {
+                    "name": "Sandbag Wall (8\"x1\" Section)",
+                    "courage": "-",
+                    "movement": "-",
+                    "shoot": "-",
+                    "fight": "-",
+                    "defense": "-",
+                    "reflexes": "-",
+                    "rules": ["terrain", "soft_cover"],
+                    "min": 1,
+                    "max": 2
+                }
+            ]
+        },
+        "improvised_barricade": {
+            "name": "Improvised Barricade (8\"x1\" Sections)",
+            "description": "A hastily constructed barricade.",
+            "min": 1,
+            "max": 1,
+            "category": "fortifications",
+            "keywords": ["Fortification"],
+            "models": [
+                {
+                    "name": "Improvised Barricade (8\"x1\" Section)",
+                    "courage": "-",
+                    "movement": "-",
+                    "shoot": "-",
+                    "fight": "-",
+                    "defense": "-",
+                    "reflexes": "-",
+                    "rules": ["terrain", "clearable", {"id": "impassable", "x": "Artillery, Vehicle"}, "soft_cover"],
+                    "min": 1,
+                    "max": 2
+                }
+            ]
+        },
+        "minefield_infantry": {
+            "name": "Anti-Infantry Minefield (6\" Radius)",
+            "description": "A minefield placed to keep infantry out.",
+            "min": 1,
+            "max": 1,
+            "category": "fortifications",
+            "keywords": ["Fortification"],
+            "models": [
+                {
+                    "name": "Anti-Infantry Minefield (6\" Radius)",
+                    "courage": "-",
+                    "movement": "-",
+                    "shoot": "-",
+                    "fight": "-",
+                    "defense": "-",
+                    "reflexes": "-",
+                    "rules": ["terrain", "clearable", "anti_infantry_mines"],
+                    "min": 1,
+                    "max": 1
+                }
+            ]
+        },
+        "minefield_tank": {
+            "name": "Anti-Tank Minefield (6\" Radius)",
+            "description": "A minefield placed to keep tanks out.",
+            "min": 1,
+            "max": 1,
+            "category": "fortifications",
+            "keywords": ["Fortification"],
+            "models": [
+                {
+                    "name": "Anti-Tank Minefield (6\" Radius)",
+                    "courage": "-",
+                    "movement": "-",
+                    "shoot": "-",
+                    "fight": "-",
+                    "defense": "-",
+                    "reflexes": "-",
+                    "rules": ["terrain", "clearable", "anti_tank_mines"],
+                    "min": 1,
+                    "max": 1
+                }
+            ]
+        },
+        "minefield_mixed": {
+            "name": "Mixed Minefield (6\" Radius)",
+            "description": "A minefield placed to keep any enemies out.",
+            "min": 1,
+            "max": 1,
+            "category": "fortifications",
+            "keywords": ["Fortification"],
+            "models": [
+                {
+                    "name": "Mixed Minefield (6\" Radius)",
+                    "courage": "-",
+                    "movement": "-",
+                    "shoot": "-",
+                    "fight": "-",
+                    "defense": "-",
+                    "reflexes": "-",
+                    "rules": ["terrain", "clearable", "mixed_mines"],
+                    "min": 1,
+                    "max": 1
+                }
+            ]
+        }
+    },
+    "strategies": {
+        "recrew": {
+            "phase": "activation",
+            "subfactions": ["infantry_focus"],
+            "name": "Re-crew",
+            "flavor": "It's highly important to keep artillery pieces manned and fighting.",
+            "description": "Use when an _Infantry_ unit moves within 3\" of an _Artillery_ unit. Remove any number of models from the _Infantry_ unit and add restore that amount of crew to the _Artillery_ unit. This may not exceed the starting crew size of the artillery unit.",
+            "cost": 1
+        },
+        "target_weak_point": {
+            "phase": "activation",
+            "subfactions": ["infantry_focus"],
+            "name": "Target Weak Point",
+            "flavor": "Exploiting weak points an an enemy's armor is key to taking out hard targets.",
+            "description": "Use before shooting with an _Infantry_ or _Artillery_ unit's weapon with AP 3 or higher. That attack is treated as hitting the target's side.",
+            "cost": 1
+        },
+        "frag_out": {
+            "phase": "activation",
+            "subfactions": ["infantry_focus"],
+            "name": "Frag Out",
+            "flavor": "A volley of hand grenades can be quite effective at dealing with enemies in cover.",
+            "description": "Use before shooting with an _Infantry_ unit that has Grenades (any type). That unit may throw 2 additional grenades.",
+            "cost": 1
+        },
+        "armored_assault": {
+            "phase": "activation",
+            "subfactions": ["armored_focus"],
+            "name": "Armored Assault",
+            "flavor": "Occasionally armored units are used to push infantry and other units off a dug in position.",
+            "description": "Use when a Vehicle unit declares a Charge action. It is treated as having Shock(+3) for that action.",
+            "cost": 1
+        },
+        "improvised_tactics": {
+            "phase": "activation",
+            "subfactions": ["armored_focus"],
+            "name": "Improvised Tactics",
+            "flavor": "Sometimes it is necessary to improvise in an armored engagement in order to gain the edge.",
+            "description": "Use when a Vehicle unit is attempting a reaction test. It gets +2 Initiative for that test.",
+            "cost": 1
+        },
+        "crew_repairs": {
+            "phase": "activation",
+            "subfactions": ["armored_focus"],
+            "name": "Emergency Repairs",
+            "flavor": "In moments of dire circumstance crews may need to repair their vehicle in combat.",
+            "description": "Use when a _Vehicle_ unit is activated. That unit may repair one critical damage caused by a penetrating hit.",
+            "cost": 2
+        },
+        "combat_drop": {
+            "phase": "pre_game",
+            "subfactions": ["airborne_focus"],
+            "name": "Combat Drop",
+            "flavor": "A well-trained paratroop unit can drop as close as possible to their intended target.",
+            "description": "Up to half of any force's _Infantry_, _Artillery_ or _Airborne Vehicle_ units, one point for each may be placed in _ambush reserves_ before the match begins.",
+            "cost": 1
+        },
+        "tough_fighters": {
+            "phase": "activation",
+            "subfactions": ["airborne_focus"],
+            "name": "Tough Fighters",
+            "flavor": "Some of the toughest units to fight in a close combat brawl are trained Airborne units.",
+            "description": "Use before an _Infantry_ unit uses a fight action. Its attacks gain AP 1.",
+            "cost": 1
+        },
+        "expert_awareness": {
+            "phase": "activation",
+            "subfactions": ["airborne_focus"],
+            "name": "Expert Awareness",
+            "flavor": "Situational awareness can be key in combat.",
+            "description": "Use when an _Infantry_ unit attempts a Reaction test. That unit gets Initiative +2 for that reaction.",
+            "cost": 1
+        },
+        "infiltrate": {
+            "subfactions": ["special_forces_focus"],
+            "phase": "pre_game",
+            "name": "Infiltrate",
+            "flavor": "Special forces are experts of infiltration.",
+            "description": "Up to half of any force's _Infantry_, _Artillery_ or _Airborne Vehicle_ units, one point for each may be placed in _outflanking reserves_ before the match begins. These units may arrive on any table edge including your opponents reinforcement edge.",
+            "cost": 1
+        },
+        "sabotage": {
+            "subfactions": ["special_forces_focus"],
+            "phase": "activation",
+            "name": "Sabotage",
+            "flavor": "With a carefully placed charge, enemy Vehicles can be dispatched quite quickly.",
+            "description": "Use when a attacking in Melee against a unit with Damage Table(x). That unit suffers 1 hit with AP 8.",
+            "cost": 1
+        },
+        "deadly_struggle": {
+            "subfactions": ["special_forces_focus"],
+            "phase": "activation",
+            "name": "Deadly Struggle",
+            "flavor": "Special forces occasionally must use their fire arms in extremely close quarters situations.",
+            "description": "Use when activating an _Infantry_ unit. For this round, all _Assault_ weapons may be fired even while engaged in Melee.",
+            "cost": 1
+        },
+        "regroup": {
+            "subfactions": ["reserves_focus"],
+            "phase": "activation",
+            "name": "Regroup",
+            "flavor": "Sometimes it is best to regroup remaining soldiers before making another push.",
+            "description": "Use before activating an _Infantry_ unit within 2\" of another of the same unit. The two units merge and, for the rest of the battle, they are counted as a single unit for all rules purposes. This may not bring a unit above its maximum size.",
+            "cost": 1
+        },
+        "reinforcements": {
+            "subfactions": ["reserves_focus"],
+            "phase": "activation",
+            "name": "Reinforcements",
+            "flavor": "With such a quantity of manpower, many fighting soldiers are available.",
+            "description": "Once per game, at the end of any round, you may remove one _Infantry_ unit from the table and place it back within 6\" of any table edge with all models restored.",
+            "cost": 3
+        },
+        "sacrifice": {
+            "subfactions": ["reserves_focus"],
+            "phase": "activation",
+            "name": "Strategic Sacrifice",
+            "flavor": "Dying for such an important cause is sometimes necessary to win a battle.",
+            "description": "Use when an _Infantry_ or _Artillery_ unit is targeted by a Shooting attack. Half the hits (rounded down) from that weapon (after adding any additional hits from effects) may be moved to another target _Infantry_ unit within 3\".",
+            "cost": 2
+        }
+    }
+}

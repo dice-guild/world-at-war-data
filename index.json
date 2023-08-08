@@ -667,12 +667,378 @@
     "dadao": {"name": "Dadao", "attacks": 1, "short": "Melee", "ap": 1}
   },
   "rules": {
+    "grappling_hook": {"name": "Grappling Hooks", "description": "This model may ignore vertical movement distances when moving.", "points": ["model.movement", {"multiply": 0.25}]},
+    "limited": {"name": "Limited", "inputs": ["x"], "description": "Only x of this model may be taken in a single roster.", "points": 0},
+    "guardian": {"name": "Guardian", "description": "Hits must be assigned to this model or another model in this unit with Guardian before other models."},
+    "impact": {"name": "Impact", "inputs": ["x"], "description": "This model causes X Melee hits with no AP when it successfully charges an enemy unit.", "points": [2, {"multiply": "rule.x"}]},
+    "phalanx": {"name": "Phalanx", "description": "Attacks with this weapon are made at +1 Strength when performing a Counter-Attack reaction.", "points": 1},
+    "exposed": {"name": "Exposed", "description": "This model may receive shock even from weapons that it can't be damaged by.", "points": -10},
+    "assault": {
+      "name": "Assault",
+      "description": "Models with this weapon may make a free shoot action after moving at -1 Accuracy. They may not shoot again this round.",
+      "points": ["weapon.attacks"]
+    },
+    "rapid_fire": {
+      "name": "Rapid Fire",
+      "description": "When shooting with this weapon, a model may choose to fire twice with it. If it does, halve both the Short and Long ranges of the weapon.",
+      "points": ["weapon.attacks"]
+    },
+    "blast": {
+      "name": "Blast",
+      "inputs": ["x"],
+      "description": "Multiply hits from this weapon by X. A unit may not take more hits than the number of models in the unit.",
+      "notes": "Small RNG discount to account for single shot randomness",
+      "points": ["rule.x", {"subtract": 1}, {"multiply": "weapon.points"}, {"multiply": 0.8}]
+    },
+    "emp": {"name": "EMP", "description": "This weapon gains +2 AP against units with a Damage Chart.", "points": ["weapon.attacks", {"multiply": 1}]},
+    "flame": {"name": "Flame", "description": "Hits from this weapon ignore any cover bonuses.", "points": ["weapon.attacks", {"multiply": 0.5}]},
+    "breaching": {"name": "Breaching", "description": "Hits from this weapon ignore any cover bonuses.", "points": ["weapon.attacks", {"multiply": 0.5}]},
+    "ammo": {
+      "name": "Ammo",
+      "inputs": ["x"],
+      "description": "This weapon may only be fired X times per game.",
+      "pointNotes": "Always apply this rule last or your numbers will be off.",
+      "points": [1, {"subtract": [0.25, {"multiply": "rule.x"}]}, {"multiply": -1}, {"multiply": "weapon.points"}]
+    },
+    "scoped": {"name": "Scoped", "description": "This weapon ignores the Long Range penalty.", "points": ["weapon.attacks", {"multiply": 0.5}, {"max": 1}]},
+    "fear": {"name": "Fear", "description": "Enemy units within 6\" get -1 Courage.", "points": 2},
+    "fly": {"name": "Fly", "description": "This model may ignore terrain and other models without the Fly special rule when moving.", "points": 2},
+    "deployable": {
+      "name": "Deployable",
+      "description": "As an action, this model can be set up on the field. It may not be used to control or contest objectives and may not be targeted by abilities."
+    },
+    "ensnare": {
+      "name": "Ensnare",
+      "description": "Units engaged in Melee with a model that has this weapon suffer -1 to Initiative tests when escaping combat for each weapon with this rule.",
+      "points": 1
+    },
+    "slowing": {"inputs": ["x"], "name": "Slowing", "description": "Enemy units hit by this weapon suffer -X\" of Movement until the end of the round.", "points": ["rule.x", {"multiply": 0.5}]},
+    "ambush": {"name": "Ambush", "description": "This unit may be placed in _Ambush Reserves_ before the game begins.", "points": 2},
+    "ambush_large": {"name": "Ambush", "description": "This unit may be placed in _Ambush Reserves_ before the game begins.", "points": 10},
+    "scout": {
+      "name": "Scout",
+      "description": "When this unit is deployed or arrives from Reserves, it may make a free Move action. This action may not move within 12\" of any enemy units.",
+      "points": 1
+    },
+    "outflank": {"name": "Outflank", "description": "This unit may be placed in _Outflanking Reserves_ before the game begins.", "points": 1},
+    "bomb": {"name": "Bomb", "description": "This weapon may be used at any time during a unit's movement. It must still use a Shoot action to fire."},
+    "resistant": {
+      "name": "Resistant",
+      "inputs": ["x"],
+      "description": "This model may ignore up to X points of AP. This may not ignore AP from abilities which increase a weapon's base AP.",
+      "points": ["rule.x", {"multiply": 1}]
+    },
+    "resilient": {
+      "name": "Defiant",
+      "inputs": ["x"],
+      "description": "Roll a die when this model is killed or loses a Wound. On a value of X or less that loss is prevented.",
+      "points": ["rule.x", {"multiply": 2}]
+    },
+    "defiant": {
+      "name": "Defiant",
+      "inputs": ["x"],
+      "description": "Roll a die when this model is killed or loses a Wound. On a value of X or less that loss is prevented.",
+      "points": ["rule.x", {"multiply": 2}]
+    },
+    "reach": {
+      "name": "Reach",
+      "inputs": ["x"],
+      "description": "This weapon may engage and fight models up to X\" away. Enemy models count as engaged and must still move into base contact to fight unless they also have reach.",
+      "points": ["weapon.attacks", {"multiply": ["rule.x", {"multiply": 1}]}]
+    },
+    "tough": {"name": "Tough", "inputs": ["x"], "description": "This model may re-roll X Save tests per round.", "points": ["model.defense", {"multiply": "rule.x"}, {"multiply": 1}]},
+    "wounds": {
+      "name": "Wounds",
+      "inputs": ["x"],
+      "description": "This model has X lives that it may lose before it is killed. If a unit contains multiple models with Wounds, damage must be assigned to an already damaged model before being assigned to any other model.",
+      "points": ["model.defense", {"subtract": "constants.baseStats.defense"}, {"max": 0}, {"multiply": 2}, {"add": 5}, {"multiply": ["rule.x", {"subtract": 1}]}]
+    },
+    "medic": {"name": "Medic(Infantry)", "description": "Whenever a friendly _Infantry_ unit within 6\" loses a model or Wound(x), roll a D10. On a 3 or less, that loss is prevented.", "points": 15},
+    "medic_x": {
+      "name": "Medic",
+      "inputs": ["x"],
+      "description": "Whenever a friendly unit  with _X_ type within 6\" loses a model or Wound(x), roll a D10. On a 3 or less, that loss is prevented.",
+      "points": 15
+    },
+    "medic_squad": {"name": "Medic", "description": "Whenever this unit loses a model or Wound(x), roll a D10. On a 2 or less, that loss is prevented.", "points": 10},
+    "non_combat": {"name": "Non-combatant", "description": "This model may never control or contest objectives, and may not score secondary objectives.", "points": 0},
+    "swarm": {
+      "name": "Swarm",
+      "inputs": ["x"],
+      "description": "This model is treated as having X models per base (for the purposes of abilities that interact with models) that it may lose before it is killed. If a unit contains multiple models with Swarm, damage must be assigned to an already damaged model before being assigned to any other model.",
+      "points": ["model.defense", {"subtract": "constants.baseStats.defense"}, {"max": 0}, {"multiply": 2}, {"add": 5}, {"multiply": ["rule.x", {"subtract": 1}]}]
+    },
+    "crew": {
+      "name": "Crew",
+      "inputs": ["x"],
+      "description": "This weapon requires X models to operate effectively. When the amount of crew is reduced to half or less, this weapon suffers -1 to hit.",
+      "points": ["rule.x", {"subtract": 1}, {"multiply": -1}]
+    },
+    "evasive": {"name": "Evasive", "description": "Models suffer -1 Accuracy when shooting at this model while it is in cover or at a range of more than 12\".", "points": 2},
+    "stealth": {"name": "Evasive", "description": "Models suffer -1 Accuracy when shooting at this model while it is in cover or at a range of more than 12\".", "points": 2},
+    "dodge": {"name": "Swift", "description": "Models suffer -1 Strength when fighting this model.", "points": 2},
+    "swift": {"name": "Swift", "description": "Models suffer -1 Strength when fighting this model.", "points": 2},
+    "poison": {
+      "name": "Poison",
+      "description": "Enemies without _Damage Chart_ hit by this weapon reduce their Save value by 1 (after AP). This may not bring a unit below Save 5.",
+      "points": ["weapon.attacks", {"multiply": 0.5}]
+    },
+    "deadly_poison": {
+      "name": "Deadly Poison",
+      "description": "Enemies without _Damage Chart_ hit by this weapon reduce their Save value by 2 (after AP). This may not bring a unit below Save 5.",
+      "points": ["weapon.attacks", {"multiply": 1}]
+    },
+    "critical": {
+      "name": "Critical",
+      "inputs": ["x"],
+      "description": "Enemy units add X to _Damage Chart_ rolls when hit by this weapon at Short range.",
+      "points": ["rule.x", {"multiply": "weapon.attacks"}, {"multiply": 2}]
+    },
+    "deadly": {
+      "name": "Deadly",
+      "inputs": ["x"],
+      "description": "Models hit by this weapon suffer X hits instead of 1. Additional hits must be assigned to the same model.",
+      "points": ["rule.x", {"subtract": 1}, {"multiply": ["weapon.points", {"multiply": 0.5}]}]
+    },
+    "armored_front": {"name": "Heavy Armor(Front)", "description": "This model gets +1 Save when hit in its front arc.", "points": 5},
+    "vulnerable_side_rear": {"name": "Vulnerable(Side, Rear)", "description": "This model gets -1 Save when hit in its Side arc or -2 Save when hit in its Rear arc.", "points": -10},
+    "vulnerable_rear": {"name": "Vulnerable(Rear)", "description": "This model gets -1 Save when hit in its Rear arc.", "points": -5},
+    "furious": {"name": "Furious", "description": "When this model charges, Strength rolls of 1 or 2 cause 2 hits instead of 1.", "points": 2},
+    "relentless": {"name": "Relentless", "description": "When this model shoots, Accuracy rolls of 1 or 2 cause 2 hits instead of 1.", "points": 2},
+    "crack_shot": {"name": "Crack Shot", "description": "Hits rolls of 1 or 2 from shooting attacks made by this model ignore the benefit of cover.", "points": [1]},
+    "stubborn": {"name": "Stubborn", "description": "This model adds 1 to Courage tests when removing Shock.", "points": [1]},
+    "reluctant": {"name": "Reluctant", "description": "This model subtracts 1 from Courage tests when removing Shock.", "points": [-1]},
+    "power": {"name": "Power", "inputs": ["x"], "description": "This unit may use X _Powers_ and attempt to stop X _Powers_ per round.", "points": [10, {"multiply": "rule.x"}]},
+    "conclave": {
+      "name": "Conclave",
+      "description": "This unit may use _Powers_ and attempt to stop _Powers_ each round based on the total number of model with this ability: \n * 1-3 Models: 1 Power \n * 4+ Models: 2 Powers \n * 7+ Models: 3 Powers",
+      "points": [2]
+    },
+    "shocking": {"name": "Shocking", "inputs": ["x"], "description": "A unit hit by this weapon gains X additional Shock.", "points": ["rule.x", {"multiply": 2}]},
+    "distracting": {"name": "Distracting", "description": "Enemy units engaged with this unit suffer -1 Strength.", "points": 2},
+    "ward": {
+      "name": "Ward",
+      "inputs": ["x"],
+      "description": "Up to X times per round, this model may attempt to dispel a Power cast within 24\". Roll a D10 and if the value is equal to or lower than the rolled value for the test, the power is stopped. If the power is not stopped, no further attempts may be made to stop the same power.",
+      "points": [5, {"multiply": "rule.x"}]
+    },
+    "defensive": {"name": "Defensive", "inputs": ["x"], "description": "This model increases its Save by X.", "points": [2, {"multiply": "rule.x"}]},
+    "hover": {"name": "Hover", "description": "This model may ignore difficult terrain and obstacles of height 2\" or less when moving.", "points": 1},
+    "agile": {"name": "Agile", "description": "This model may ignore low obstacles of 1\" or less in height when moving.", "points": 1},
+    "walker": {"name": "Walker", "description": "This model may ignore low obstacles of 2\" or less in height when moving.", "points": 5},
+    "repair": {
+      "name": "Repair",
+      "inputs": ["x"],
+      "description": "At any point during this model's activation, if within 3\" of a _Vehicle_ unit, roll one die. On an X or less the vehicle may remove one critical damage.",
+      "points": ["rule.x", {"multiply": 2}]
+    },
+    "engineer": {
+      "name": "Engineer",
+      "description": "At any point during this model's activation, if within 3\" of a _Vehicle_ unit, roll one die. On a 5 or less the vehicle may remove one critical damage.",
+      "points": [10]
+    },
+    "titanic": {"name": "Titanic", "description": "This unit subtracts 2 from all Damage Chart rolls.", "points": ["model.defense", {"subtract": "constants.baseStats.defense"}, {"multiply": 10}]},
+    "damage_chart": {
+      "name": "Damage Chart",
+      "description": "This unit does not benefit from Cover. Instead, subtract the cover Save bonuses from Damage Chart rolls. When this model would be killed, roll a D10 adding the amount it failed the save by plus the number of critical damage tokens it has and refer to the following: \n * Shaken(3+): Take one additional shock. \n * Panic(6+): Take 2 additional shock and immediately take a Courage test. If failed the unit is destroyed. \n * Destroyed(9+): It is instantly destroyed. \n * Critical(12+): The unit is destroyed and all units within 6\" gain 2 Shock. \n\n\n Mark each time the unit rolls on the chart with a critical damage token. While a unit has one or more damage tokens, it may not remove that amount of Shock. If a unit contains multiple models with Damage Chart, hits must be assigned to models with a critical damage token first.",
+      "points": ["model.defense", {"subtract": "constants.baseStats.defense"}, {"multiply": 10}]
+    },
+    "catches_fire": {"name": "Catches Fire", "description": "Add 2 to all Damage Chart rolls for this unit.", "points": -5},
+    "fearless": {"name": "Fearless", "description": "This unit requires an extra shock to take break tests.", "points": 1},
+    "resist": {"name": "Protect", "inputs": ["x"], "description": "This unit gets +X to its Resist rolls.", "points": ["rule.x", {"multiply": 2}]},
+    "open_topped": {
+      "name": "Open-Topped",
+      "inputs": ["x"],
+      "description": "Units inside this transport may take a single fire action when activated. Up to X models total may fire their weapons.",
+      "points": ["rule.x"]
+    },
+    "teleport": {"name": "Teleport", "description": "Once per activation, this model may ignore models and any terrain when making a Move action.", "points": 1},
+    "transport": {
+      "name": "Transport",
+      "description": "This model may carry X _Infantry_ models inside of it. Units may spend a Move action to embark or disembark from this model. To disembark, measure a Move action originating from this model's edge. To embark, the unit must all get within 1\" of this model. If this model is destroyed while units are embarked, each model inside must take a single Save with no AP and then the unit takes 3 Shock. If this unit makes two Move actions, units may not embark or disembark from this unit.",
+      "inputs": ["x"],
+      "points": ["rule.x"]
+    },
+    "reload": {"name": "Reload", "description": "After firing, a unit must spend 1 action to reload this weapon before it can be fired again.", "points": ["weapon.attacks", {"multiply": -1}]},
+    "sniper": {"name": "Sniper", "description": "This weapon may ignore the Long Range penalty and any Cover bonuses. You may choose which model is hit even if it has Leader.", "points": 2},
+    "assassin": {"name": "Assassin", "description": "You may choose which model is hit even if it has Leader and these hits may not be reassigned to other friendly units.", "points": 5},
+    "aircraft": {
+      "name": "Aircraft",
+      "description": "Enemy units suffer -1 Accuracy when shooting at this model. This model may ignore terrain and other models when moving. This model may only turn up to 90 degrees. When activated, it must first take a free move its full movement distance in a straight line. If it ends its move off the table, place it back on any table edge. Its activation then ends. Enemy models may not engage this unit in Melee unless they have the Fly rule. This model may not control objectives.",
+      "points": 20
+    },
+    "leeching": {"name": "Leeching", "description": "Roll a D10 each time an enemy model fails a Save from this weapon. On a 1 or 2 this model regains one Wound.", "points": 1},
+    "team": {
+      "name": "Team",
+      "inputs": ["x"],
+      "description": "This weapon requires X models to operate effectively. It suffers -1 Accuracy for each model under this number.",
+      "points": ["rule.x", {"subtract": 1}, {"multiply": -1}]
+    },
+    "light_armor": {"name": "Light Armor", "description": "This model has +1 Save.", "description_short": "+1 Save", "points": ["model.rules.wounds.x", {"max": 1}, {"multiply": 2}]},
+    "heavy_armor": {"name": "Heavy Armor", "description": "This model has +2 Save.", "description_short": "+2 Save", "points": ["model.rules.wounds.x", {"max": 1}, {"multiply": 4}]},
+    "shield": {"name": "Shield", "description": "This model has +1 Save.", "description_short": "+1 Save", "points": ["model.rules.wounds.x", {"max": 1}, {"multiply": 2}]},
+    "relic_shield": {"name": "Heavy Shield", "description": "This model has +1 Save.", "description_short": "+1 Save", "points": ["model.rules.wounds.x", {"max": 1}, {"multiply": 10}]},
+    "buckler": {"name": "Buckler", "description": "This model has +1 Save against melee attacks.", "points": ["model.rules.wounds.x", {"max": 1}, {"multiply": 1}]},
+    "shielding": {"name": "Shielding", "description": "Whenever this model is hit by an attack, roll a D10. On a 3 or less that hit is prevented.", "points": 5},
+    "gun_shield": {"name": "Gun Shield", "description": "Friendly models gain +1 Save when targeted by attacks which cross this model.", "points": 5},
+    "smoke": {
+      "name": "Smoke",
+      "description": "Choose a location on the battlefield within range of this weapon and if a hit is successful, place a 3\" diameter smoke marker at the target location. If the weapon fires multiple shots and more than one lands on target, place any additional smoke markers in contact with the edge of the first hit. Smoke markers block line of sight and models inside or partially obscured by smoke markers gain the benefit of Soft Cover. At the end of the round, roll a D10 for each smoke marker. On a 5 or less the smoke marker is removed.",
+      "points": [-1]
+    },
+    "side_skirts": {"name": "Side Skirts", "description": "This model gains +1 to its Save when hit in its side arcs from weapons with AP 4 or less.", "points": 5},
+    "fanatical": {"name": "Fanatical", "description": "This unit is treated as having +2 Courage for all break tests and does not gain shock from close combat.", "points": 2},
+    "homing": {"name": "Homing", "description": "This weapon hits at Accuracy +1.", "points": ["weapon.attacks"]},
+    "stun": {"name": "Stun", "description": "If this weapon hits its target, that unit gets -1 Strength and -1 Accuracy for its next attack.", "points": 1},
+    "amphibious": {"name": "Amphibious", "description": "This unit may treat impassable water terrain as difficult terrain.", "points": 5},
+    "scatter": {
+      "name": "Scatter",
+      "description": "When choosing a target for this weapon, choose a specific model in the unit. If this weapon misses, use D10 scattering to determine the landing point of the shot relative to that model. If it lands within 1\" of a different unit, that unit is hit instead.",
+      "points": ["weapon.attacks"]
+    },
+    "gravity": {"name": "Gravity", "description": "This weapon gets +2 AP against targets with Save 10 or higher.", "points": ["weapon.attacks", {"multiply": 1}]},
+    "salvo": {"name": "Salvo", "description": "This weapon always hits at -1 Accuracy. When scattering results from this weapon, it hits the closest unit within 3\" instead of just 1\"."},
+    "overcharge": {"name": "Overheat", "description": "Hit rolls of 9+ cause the firing unit to take 2 Shock.", "points": 0},
+    "overheat": {"name": "Overheat", "description": "Hit rolls of 9+ cause the firing unit to take 2 Shock.", "points": 0},
+    "pistol": {"name": "Pistol", "description": "This weapon may be used instead of a model's other weapons even while engaged in close combat.", "points": ["weapon.attacks", {"multiply": 1}]},
+    "strider": {"name": "Strider", "description": "This model can cross difficult and dangerous terrain without penalty.", "points": 1},
+    "rending": {"name": "Rending", "description": "Hit rolls of 1 or 2 gain +1 AP.", "points": ["weapon.attacks", {"multiply": 0.2}]},
+    "indirect": {"name": "Indirect", "description": "This weapon may target units out of line of sight at -1 Accuracy.", "points": ["weapon.attacks"]},
+    "anti_air": {"name": "Anti-air", "description": "This weapon gets +1 to hit units with the Aircraft special rule.", "points": ["weapon.attacks", {"multiply": 1}]},
+    "grenade": {"name": "Grenade", "description": "One model in this unit may use this weapon instead of any other weapons. This weapon ignores cover bonuses."},
+    "pestilence": {"name": "Pestilence", "description": "Enemy units hit by this weapon must re-roll successful Save rolls of 1.", "points": ["weapon.attacks", {"multiply": 1}]},
+    "lance": {"name": "Lance", "description": "This weapon gets +1 AP when used during a Charge.", "points": ["weapon.attacks", {"multiply": 1}]},
+    "leader": {
+      "name": "Leader(Infantry)",
+      "description": "When activated, this unit may perform a group activation with up to 2 other friendly _Infantry_ units within 6\". This unit may not be targeted by enemy attacks while it is within 3\" of another friendly unit of _X_ type unless that unit is also a Leader and attacking in Melee.",
+      "points": 10
+    },
+    "leader_x": {
+      "name": "Leader",
+      "inputs": ["x"],
+      "description": "When activated, this unit may perform a group activation with up to 2 other friendly units of _X_ type within 6\". This unit may not be targeted by enemy attacks while it is within 3\" of another friendly unit of _X_ type unless that unit is also a Leader and attacking in Melee.",
+      "points": 10
+    },
+    "support": {
+      "name": "Support",
+      "description": "When another friendly _Infantry_ unit within 6\" activates, this unit may perform a group activation with that unit. This unit may not be targeted by enemy attacks while it is within 3\" of another friendly _Infantry_ unit.",
+      "points": 5
+    },
+    "support_x": {
+      "name": "Support",
+      "inputs": ["x"],
+      "description": "When another friendly unit of _X_ type within 6\" activates, this unit may perform a group activation with that unit. This unit may not be targeted by enemy attacks while it is within 3\" of another friendly unit of _X_ type.",
+      "points": 5
+    },
+    "hero": {"name": "Hero", "description": "When this model is activated, friendly _Infantry_ units within 6\" may choose to activate and perform the same actions as this unit."},
+    "lightweight": {"name": "Lightweight", "description": "Attacks with this weapon are made at +1 Strength.", "points": ["weapon.attacks", {"multiply": 1}]},
+    "cumbersome": {"name": "Cumbersome", "description": "Attacks with this weapon are made at -1 Strength.", "points": ["weapon.attacks", {"multiply": -1}]},
+    "heavy": {"name": "Heavy", "description": "Halve the short and long ranges of this weapon on any turn which this model performs a Move action.", "points": ["weapon.attacks", {"multiply": -1}]},
+    "accurate": {"name": "Accurate", "description": "Attacks with this weapon are made at +1 Accuracy.", "points": ["weapon.attacks", {"multiply": 1}]},
+    "unreliable": {"name": "Unreliable", "description": "Attacks with this weapon are made at -1 Accuracy.", "points": ["weapon.attacks", {"multiply": -1}]},
+    "terrain": {
+      "name": "Terrain",
+      "description": "This model may be placed anywhere on the field during deployment, more than 12\" from any enemy units or deployment zones. Once placed, this unit is treated as terrain and may not be controlled or activated by the owning player."
+    },
+    "impassable": {"name": "Impassable", "inputs": ["x"], "description": "This model may not be crossed by X unit types.", "points": 10},
+    "clearable": {
+      "name": "Clearable(5)",
+      "description": "_Infantry_ units within 3\" of this model may take a Clear action to attempt to clear this obstacle. Roll a D10 and on a roll of 5 or less this obstacle is cleared."
+    },
+    "garrison": {
+      "name": "Garrison",
+      "description": "Up to X models or a gun with X or less Crew may occupy this model in the same way models occupy a building. If this model is destroyed while units are embarked, each model inside must take a single Save with no AP and then the unit takes 3 Shock.",
+      "inputs": ["x"]
+    },
+    "soft_cover_x": {"name": "Normal Cover", "inputs": ["x"], "description": "This model provides Normal Cover to X models in it.", "points": ["rule.x", {"multiply": 2}]},
+    "soft_cover": {"name": "Normal Cover", "description": "This model provides Normal Cover to models behind it.", "points": 10},
+    "hard_cover_x": {"name": "Normal Cover", "inputs": ["x"], "description": "This model provides Normal Cover to X models in it.", "points": ["rule.x", {"multiply": 4}]},
+    "hard_cover": {"name": "Normal Cover", "description": "This model provides Normal Cover to models behind it.", "points": 20},
+    "mount_horse": {"name": "Horse", "hidden": true, "description_short": "+2\" Movement", "description": "Increase this model's Movement by 2\".", "points": 2},
+    "skirmishers": {
+      "name": "Skirmishers",
+      "description": "This unit has +1 Save when hit by a shooting attack, +1 to initiative tests when rushing and has a 3“ coherency instead of a 2“ coherency if all models in it have this rule.",
+      "points": 2
+    },
+    "musician": {"name": "Musician", "description": "Once per round, this model's unit may re-roll a single failed Initiative test when rushing.", "points": 5},
+    "banner": {"name": "Banner", "description": "Once per round, this model's unit may re-roll a single failed Courage test when removing Shock.", "points": 5},
+    "champion": {"name": "Champion", "description": "Once per round, this model's unit may re-roll a single failed Accuracy or Strength test when attacking.", "points": 5},
+    "lethal": {
+      "name": "Lethal",
+      "description": "Hit rolls of 1 or 2 from this weapon cause 2 hits instead of 1. Additional hits must be assigned to the same model.",
+      "points": ["weapon.attacks", {"multiply": 1}]
+    },
+    "brutal": {"name": "Brutal", "description": "This weapon gains +1 AP at Short range.", "points": ["weapon.attacks", {"multiply": 0.5}]},
+    "rifle_tactics": {
+      "name": "Rifle Tactics",
+      "inputs": ["x"],
+      "description": "When this unit is activated, choose up to X friendly Infantry units within 6\". Those units may re-roll failed Accuracy tests of 9+ until the end of the round.",
+      "points": ["rule.x", {"multiply": 10}]
+    },
+    "melee_tactics": {
+      "name": "Melee Tactics",
+      "inputs": ["x"],
+      "description": "When this unit is activated, choose up to X friendly Infantry units within 6\". Those units may re-roll failed Strength tests of 9+ until the end of the round.",
+      "points": ["rule.x", {"multiply": 10}]
+    },
+    "knight_tactics": {
+      "name": "Knight Tactics",
+      "inputs": ["x"],
+      "description": "When this unit is activated, choose up to X friendly _Cavalry_ units within 6\". This unit and those units may re-roll failed Strength tests of 9+ until the end of the round.",
+      "points": ["rule.x", {"multiply": 10}]
+    },
+    "marauder_tactics": {
+      "name": "Marauder Tactics",
+      "inputs": ["x"],
+      "description": "When this unit is activated, choose up to X friendly _Cavalry_ units within 6\". This unit and those units may re-roll failed Accuracy tests of 9+ until the end of the round.",
+      "points": ["rule.x", {"multiply": 10}]
+    },
+    "sorcerous_tactics": {
+      "name": "Sorcerous Tactics",
+      "inputs": ["x"],
+      "description": "When this unit is activated, choose up to X friendly units within 6\". Those units may re-roll failed Power tests of 9+ until the end of the round.",
+      "points": ["rule.x", {"multiply": 10}]
+    },
+    "regeneration": {"name": "Regeneration", "description": "At the end of it's activation you can heal 1 wound that has been allocated to this model.", "points": 5},
+    "crazed": {
+      "name": "Crazed",
+      "description": "When you activate this unit make an initiative test. If successful, until the end of the turn whenever you make a move action with this unit you may rush without needing to make an initiative test.",
+      "points": 4
+    },
+    "battle_prayer": {
+      "name": "Battle Prayer",
+      "description": "When this unit is activated, choose a Blessing for this unit or a friendly _Infantry_ unit within 6\" to receive until the end of the turn:\n* Divine Shield: Roll a die when a model in this unit loses a wound. On a value of 1 or 2 that wound is not lost.\n* Righteous Fury: When this unit fights, hit rolls of 1 or 2 generate an additional attack.\n* Healing Word: One model in the unit immediately heals D3 wounds.",
+      "points": [15]
+    },
+    "curse": {
+      "name": "Curse",
+      "description": "When this unit is activated, choose a Curse for an enemy _Infantry_ unit within 6\" to receive until the end of the turn:\n* Weakness: This unit has -1 Strength and Accuracy when fighting or making a shooting attack.\n* Brittle Bones: When this unit is targeted by an attack, hit rolls of 1 or 2 generate an additional attack.\n* Soul Siphon: One model in the unit immediately takes 2 hits with AP2.",
+      "points": [15]
+    },
+    "ethereal": {"name": "Ethereal", "description": "This model may ignore other models and any terrain when moving.", "points": 2},
+    "knockback": {
+      "name": "Knockback",
+      "inputs": ["x"],
+      "description": "When an enemy model takes any unsaved hit by this weapon, you can push that model X“ directly away from this model.",
+      "points": [2, {"multiply": "rule.x"}]
+    },
+    "parry": {"name": "Parry", "description": "This model has +1 Save against melee attacks.", "points": 1},
+    "heavy_impact": {
+      "name": "Heavy Impact",
+      "inputs": ["x"],
+      "description": "This model causes X Melee hits with AP(1) when it successfully charges an enemy unit.",
+      "points": [4, {"multiply": "rule.x"}]
+    },
+    "disrupt": {"name": "Disrupt", "inputs": ["x"], "description": "This weapon has +X AP against units with _Damage Chart_.", "points": ["rule.x", {"multiply": 0.5}]},
+    "inspiring": {"name": "Inspiring(Infantry)", "description": "Friendly _Infantry_ units within 6\" gain +1 Courage when taking Courage Tests.", "points": 10},
+    "inspiring_x": {"name": "Inspiring", "inputs": ["x"], "description": "Friendly units of _X_ type within 6\" gain +1 Courage when taking Courage Tests.", "points": 10},
+    "tactician": {"name": "Tactician(Infantry)", "description": "Friendly _Infantry_ units within 6\" may re-roll failed Accuracy and Strength tests of 9+.", "points": 10},
+    "tactician_x": {"name": "Tactician", "inputs": ["x"], "description": "Friendly units of _X_ type within 6\" may re-roll failed Accuracy and Strength tests of 9+.", "points": 10},
     "improvised_armor": {"name": "Improvised Armor", "description": "Subtract 1 from all Damage Table(X) rolls for this model.", "points": 10},
     "heat": {"name": "HEAT", "description": "Enemy units add 1 to rolls on any Damage Table(X) rules when hit by this weapon at Short range.", "points": ["weapon.attacks", {"multiply": 2.5}]},
     "tank_ace": {"name": "Tank Ace", "description": "This unit gets +1 Accuracy.", "points": 20},
     "inspiring_leader": {"name": "Inspiring Leader", "description": "This unit and friendly _Infantry_ units within 6\" get +1 Courage.", "points": 10},
     "airdrop": {"name": "Airdrop", "description": "Set one _Infantry_, _Artillery_ or _Airborne Vehicle_ in _Ambush Reserves_ before the game begins.", "points": 3},
-    "fanatical": {"name": "Fanatical", "description": "This unit is treated as having +2 Courage for all break tests and does not gain shock from close combat.", "points": 2},
     "body_armor": {"name": "Body Armor", "description": "This model gains +1 Save.", "points": 2},
     "tank_rider": {"name": "Tank Rider", "description": "This model and its unit may be embarked on Vehicle unit with a save of 11+ as if it had Transport.", "points": 1},
     "improved": {"name": "Improved", "description": "This weapon gains +1 AP when shooting a target at Short Range.", "points": 5},
@@ -691,23 +1057,8 @@
       "description": "Increase this model's Movement by 2\", but it may not use any weapons while mounted. This unit may dismount at the end of any Move action. A unit that has dismounted may no longer remount.",
       "points": 2
     },
-    "side_skirts": {"name": "Side Skirts", "description": "This model gains +1 to its Save when hit in its side arcs from weapons with AP 4 or less.", "points": 5},
-    "gun_shield": {"name": "Gun Shield", "description": "Friendly models gain +1 Save when targeted by attacks which cross this model.", "points": 5},
-    "smoke": {
-      "name": "Smoke",
-      "description": "Choose a location on the battlefield within range of this weapon and if a hit is successful, place a 3\" diameter smoke marker at the target location. If the weapon fires multiple shots and more than one lands on target, place any additional smoke markers in contact with the edge of the first hit. Smoke markers block line of sight and models inside or partially obscured by smoke markers gain the benefit of Soft Cover. At the end of the round, roll a D10 for each smoke marker. On a 5 or less the smoke marker is removed.",
-      "points": [-1]
-    },
     "tracked": {"name": "Tracked", "description": "This unit may ignore difficult terrain and low obstacles when moving.", "points": 10},
-    "amphibious": {"name": "Amphibious", "description": "This unit may treat impassable water terrain as difficult terrain.", "points": 5},
-    "salvo": {"name": "Salvo", "description": "This weapon always hits at -1 Accuracy. When scattering results from this weapon, it hits the closest unit within 3\" instead of just 1\"."},
     "half_tracked": {"name": "Half-Tracked", "description": "This unit may ignore difficult terrain when moving.", "points": 5},
-    "team": {
-      "name": "Team",
-      "inputs": ["x"],
-      "description": "This weapon requires X models to operate effectively. It suffers -1 Accuracy for each model under this number.",
-      "points": ["rule.x", {"subtract": 1}, {"multiply": -1}]
-    },
     "riveted": {"name": "Riveted", "description": "This unit adds +1 to any Damage Table(x) rolls.", "points": -5},
     "field_orders": {
       "name": "Field Orders",
@@ -1240,6 +1591,216 @@
       "flavor": "Dying for such an important cause is sometimes necessary to win a battle.",
       "description": "Use when an _Infantry_ or _Artillery_ unit is targeted by a Shooting attack. Half the hits (rounded down) from that weapon (after adding any additional hits from effects) may be moved to another target _Infantry_ unit within 3\".",
       "cost": 2
+    }
+  },
+  "missions": {
+    "hidden_missions": {
+      "spearhead_defense": {
+        "name": "Spearhead Defense",
+        "map": "/data/missions/defense.png",
+        "setup": "You and your opponent must set up objective markers as shown in the mission map.",
+        "deployment": "Roll off and the winner chooses a table edge to defend. Their opponent will get the opposite table edges to attack. The defender may additionally deploy any units inside the red marked area during deployment.",
+        "victory_conditions": "Players score 5 VP at the end of the round for each of the following: \n * Controlling one objective \n * Controlling two or more objectives \n * Controlling three or more objectives"
+      },
+      "corner_defense": {
+        "name": "Corner Defense",
+        "map": "/data/missions/corner_defense.png",
+        "setup": "You and your opponent must set up objective markers as shown in the mission map.",
+        "deployment": "Roll off and the winner chooses a table edge to defend. Their opponent will get the opposite table edges to attack. The defender may additionally deploy any units inside the red marked area during deployment.",
+        "victory_conditions": "Players score 5 VP at the end of the round for each of the following: \n * Controlling one objective \n * Controlling two or more objectives \n * Controlling three or more objectives"
+      }
+    },
+    "missions": {
+      "frontline": {
+        "name": "Frontline",
+        "map": "https://github.com/dice-guild/battle-forge-data/raw/main/rules/missions/battle/frontline.png",
+        "setup": "You and your opponent must set up objective markers as shown in the mission map.",
+        "deployment": "Roll off and the winner chooses a table edge for their reinforcements. Their opponent will get the opposite table edge.",
+        "victory_conditions": "Players score 5 VP at the end of the round for each of the following: \n * Controlling one objective \n * Controlling two or more objectives \n * Controlling three or more objectives"
+      },
+      "dual_fronts": {
+        "name": "Dual Fronts",
+        "map": "https://github.com/dice-guild/battle-forge-data/raw/main/rules/missions/battle/dual_fronts.png",
+        "setup": "You and your opponent must set up objective markers as shown in the mission map.",
+        "deployment": "Roll off and the winner chooses a table edge for their reinforcements. Their opponent will get the opposite table edge.",
+        "victory_conditions": "Players score 5 VP at the end of the round for each of the following: \n * Controlling one objective \n * Controlling two or more objectives \n * Controlling three or more objectives"
+      },
+      "wide": {
+        "name": "Frontline Wide",
+        "map": "https://github.com/dice-guild/battle-forge-data/raw/main/rules/missions/battle/wide.png",
+        "setup": "You and your opponent must set up objective markers as shown in the mission map.",
+        "deployment": "Roll off and the winner chooses a table edge for their reinforcements. Their opponent will get the opposite table edge.",
+        "victory_conditions": "Players score 5 VP at the end of the round for each of the following: \n * Controlling one objective \n * Controlling two or more objectives \n * Controlling three or more objectives"
+      },
+      "push": {
+        "name": "Push",
+        "map": "https://github.com/dice-guild/battle-forge-data/raw/main/rules/missions/battle/push.png",
+        "setup": "You and your opponent must set up objective markers as shown in the mission map.",
+        "deployment": "Roll off and the winner chooses a table edge for their reinforcements. Their opponent will get the opposite table edge.",
+        "victory_conditions": "Players score 5 VP at the end of the round for each of the following: \n * Controlling one objective \n * Controlling two or more objectives \n * Controlling three or more objectives"
+      },
+      "corner_push": {
+        "name": "Corner Push",
+        "map": "https://github.com/dice-guild/battle-forge-data/raw/main/rules/missions/battle/corner_push.png",
+        "setup": "You and your opponent must set up objective markers as shown in the mission map.",
+        "deployment": "Roll off and the winner chooses a table edge for their reinforcements. Their opponent will get the opposite table edge.",
+        "victory_conditions": "Players score 5 VP at the end of the round for each of the following: \n * Controlling one objective \n * Controlling two or more objectives \n * Controlling three or more objectives"
+      },
+      "flanking_frontlines": {
+        "name": "Flanking Frontlines",
+        "map": "https://github.com/dice-guild/battle-forge-data/raw/main/rules/missions/battle/flanking_frontlines.png",
+        "setup": "You and your opponent must set up objective markers as shown in the mission map.",
+        "deployment": "Roll off and the winner chooses a table edge for their reinforcements. Their opponent will get the opposite table edge.",
+        "victory_conditions": "Players score 5 VP at the end of the round for each of the following: \n * Controlling one objective \n * Controlling two or more objectives \n * Controlling three or more objectives"
+      },
+      "corner_frontlines": {
+        "name": "Corner Frontlines",
+        "map": "https://github.com/dice-guild/battle-forge-data/raw/main/rules/missions/battle/corner_frontlines.png",
+        "setup": "You and your opponent must set up objective markers as shown in the mission map.",
+        "deployment": "Roll off and the winner chooses a table edge for their reinforcements. Their opponent will get the opposite table edge.",
+        "victory_conditions": "Players score 5 VP at the end of the round for each of the following: \n * Controlling one objective \n * Controlling two or more objectives \n * Controlling three or more objectives"
+      },
+      "diagonal_frontlines": {
+        "name": "Diagonal Frontlines",
+        "map": "https://github.com/dice-guild/battle-forge-data/raw/main/rules/missions/battle/diagonal_frontlines.png",
+        "setup": "You and your opponent must set up objective markers as shown in the mission map.",
+        "deployment": "Roll off and the winner chooses a table edge for their reinforcements. Their opponent will get the opposite table edge.",
+        "victory_conditions": "Players score 5 VP at the end of the round for each of the following: \n * Controlling one objective \n * Controlling two or more objectives \n * Controlling three or more objectives"
+      },
+      "sectors": {
+        "name": "Sectors",
+        "map": "https://github.com/dice-guild/battle-forge-data/raw/main/rules/missions/battle/sectors.png",
+        "setup": "You and your opponent must set up objective markers as shown in the mission map.",
+        "deployment": "Roll off and the winner chooses a table edge for their reinforcements. Their opponent will get the opposite table edge.",
+        "victory_conditions": "Players score 5 VP at the end of the round for each of the following: \n * Controlling one objective \n * Controlling two or more objectives \n * Controlling three or more objectives"
+      },
+      "wide_push": {
+        "name": "Push Wide",
+        "map": "https://github.com/dice-guild/battle-forge-data/raw/main/rules/missions/battle/wide_push.png",
+        "setup": "You and your opponent must set up objective markers as shown in the mission map.",
+        "deployment": "Roll off and the winner chooses a table edge for their reinforcements. Their opponent will get the opposite table edge.",
+        "victory_conditions": "Players score 5 VP at the end of the round for each of the following: \n * Controlling one objective \n * Controlling two or more objectives \n * Controlling three or more objectives"
+      }
+    },
+    "weather": {
+      "night_fighting": {
+        "name": "Night Fighting",
+        "description": "The perfect time for a raid is in the dead of night.",
+        "rules": "* Units may not target units at a range of more than 24“.\n* Mark any units that have made a Shoot action this round. That unit and friendly units within 3” are visible and may be targeted regardless of range restrictions.\n* Light-emitting terrain or obstacles (campfires, lampposts etc.) light up units within 3” and they may be targeted regardless of range restrictions."
+      },
+      "severe_storm": {
+        "name": "Severe Storm",
+        "description": "While storms are certainly not ideal fighting conditions, some operations may be pushed forward regardless.",
+        "rules": "* Units performing a Move action that crosses terrain that isn’t Road terrain or terrain designated as “Storm proof“ must take an Initative test. If failed, that unit lose 2\" of movement for that action.\n* Units do not receive the +2“ Movement from Road terrain."
+      },
+      "dense_fog": {
+        "name": "Dense Fog",
+        "description": "While less imapactful than a fully night time attack, dense fog provides a challenge for those attempting to spot enemy units in it.",
+        "rules": "* Models suffer -1 Accuracy when shooting at units at a range of more than 12\"."
+      },
+      "extreme_temperatures": {
+        "name": "Extreme Temperatures",
+        "description": "Some battles while not affected by poor visibility or storming conditions, may simply be too hot or cold to fight effectively.",
+        "rules": "* At the start of the round, each unit not inside a Building or terrain designated as “Safe from the Elements“ receives 1 shock.\n * Units that have been been hit by a melee attack suffer -1 to Courage tests until the end of the round."
+      },
+      "normal": {"name": "Normal Conditions", "description": "Both sides are prepared to fight normally.", "rules": "No additional effects apply."},
+      "preparatory_bombardment": {
+        "name": "Preparatory Bombardment",
+        "description": "Both sides have opened with a large shelling of artillery to attempt to pin down the enemy before the attack commences.",
+        "rules": "* At the start of the first round, all units on the board receive 2 Shock."
+      },
+      "exhaustion": {
+        "name": "Exhaustion",
+        "description": "The fighting has lasted days or weeks without end and both forces are beginning to break.",
+        "rules": "* All units suffer -1 to Courage tests and receive 1 additional Shock when hit by a melee attack."
+      },
+      "sworn_enemies": {
+        "name": "Sworn Enemies",
+        "description": "Both sides have fought previously and are now bitter rivals. Today they are here to fight.",
+        "rules": "* When making a Charge action, units may move an additional 2\" and gain +1 Strength for that action."
+      },
+      "organizational_chaos": {
+        "name": "Organizational Chaos",
+        "description": "The chain of command has fallen short and the soldiers are now fighting with or without orders.",
+        "rules": "* All units suffer -1 to Courage tests."
+      }
+    },
+    "secondaries": {
+      "infiltrate": {
+        "name": "Infiltrate",
+        "description": "Infiltrating the enemy zone and gathering intel can be critical to success.",
+        "rules": "* Once per round, a unit may perform the Gather Intel action inside the enemy deployment area. Perform an Initiative test with that unit. If successful, gain 5 VP."
+      },
+      "secure": {
+        "name": "Secure",
+        "description": "Securing an objective for further control can be essential.",
+        "rules": "* Once per round, a unit in range of an objective may perform the Secure action. Perform an Initiative test with that unit. If successful, gain 3 VP."
+      },
+      "new_orders": {
+        "name": "New Orders",
+        "description": "New orders have been received and additional objectives are available.",
+        "rules": "* Each player places one additional objective 12\" away from any existing objectives and more than 12\" away from their deployment area."
+      },
+      "breakthrough": {
+        "name": "Breakthrough",
+        "description": "Breaking through enemy lines can cause havoc for troop organization.",
+        "rules": "* Once per round, players may move a unit off their opponents table edge. After doing so, remove the unit from the board and gain 5 VP."
+      },
+      "take_and_hold": {
+        "name": "Take and Hold",
+        "description": "Taking key ground can be critical to moving the frontline forward.",
+        "rules": "* Each player places one additional objective inside the enemy deployment area and 12\" away from all existing objectives."
+      },
+      "priority_orders": {
+        "name": "Priority Orders",
+        "description": "A message has come from high command to take this important objective.",
+        "rules": "* Players designate one objective to be their priority objective. If held, you gain 3 VP. This cannot be the objective closest to your deployment zone."
+      },
+      "critical_asset": {
+        "name": "Critical Asset",
+        "description": "You must take a secure an important item for further investigation.",
+        "rules": "* Place one critical item objective marker at the center of the table. At the end of the round, if a player controls that objective, that unit picks up the objective marker and it travels with the unit. If the unit is killed, place the objective marker where the unit was destroyed. \n* At the end of the round, the player controlling the objective marker gains 2 VP and at the end of the game the player that controls the objective marker gains an additional 5 VP."
+      },
+      "caches": {
+        "name": "Caches",
+        "description": "Important caches are scattered throughout the battlefield which can be secured.",
+        "rules": "* Players roll off and alternate placing 6 cache markers on the field within 3\" of any objective marker and more than 3\" away from other cache markers.\n* No objective may have more than 2 cache markers placed within 3“ of it.\n* Units may perform the Recover action when in base contact with a cache marker. Perform an Initiative test with that unit. If successful, gain 3 VP and remove the cache marker from the board."
+      },
+      "attrition": {
+        "name": "Attrition",
+        "description": "As the losses add up, both sides must consider what they are willing to do to win.",
+        "rules": "* Players score 2 additional VP for each enemy unit that is full destroyed.\n* Any unit may perform the Withdraw action if it is not engaged in melee. When performed, the unit is removed from the table, but does not count as being destroyed."
+      },
+      "raze": {
+        "name": "Raze",
+        "description": "Destroying an objective can ensure your opponent cannot use it against you.",
+        "rules": "* At the end of the round after objectives are scored, if you control more than one objective, you may choose to destroy an objective you control for 5 VP. After you do this, remove the objective from the board."
+      },
+      "lockdown": {
+        "name": "Lockdown",
+        "description": "It is not enough to simply control important ground. It must be fully locked down.",
+        "rules": "* Each objective with no enemy units within 12\" grants an additional 3 VP."
+      },
+      "domination": {
+        "name": "Domination",
+        "description": "Securing the most ground can give you a positional advantage in the fight.",
+        "rules": "* At the end of the round after objectives are scored, if you have a non-engaged unit in at least 3 table quarters, gain 3 VP. If you have an non-engaged unit in all table quarters gain 5 VP instead."
+      },
+      "bounty": {
+        "name": "Bounty",
+        "description": "It is sometimes necessary to eliminate a key target during the battle for operational purposes.",
+        "rules": "* Choose one enemy unit at the start of the game. If that unit is fully destroyed, gain 5 VP."
+      },
+      "conquest": {
+        "name": "Conquest",
+        "description": "Taking ground from the enemy can be even more satisfying than holding your own.",
+        "rules": "* At the end of the round, each objective captured which was previously controlled by an enemy grants an additional 3 VP."
+      },
+      "deploy": {
+        "name": "Deploy",
+        "description": "Setting up critical battlefield objectives can prove valuable in the coming battles.",
+        "rules": "* Choose up to 3 units at the start of the game to carry a deploy objective marker. \n* During a unit's activation, they may perform an initiative test to setup a deploy objective marker outside their deployment area and in base contact with a model from the unit. \n* A player with more models within 3\" of that objective marker may perform an Initiative test to destroy a deploy objective marker. \n* At the end of the game, players earn 3 VP for each deploy objective marker still active on the table."
+      }
     }
   }
 }

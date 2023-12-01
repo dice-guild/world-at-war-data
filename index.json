@@ -200,8 +200,7 @@
       "url": "brazil.json",
       "color": "#45a35c",
       "alliance": "allies",
-      "description": "Starting the war as a neutral power, Brazil began to suppor the allied war effort with air bases in its territory. Eventually war was delcared ont he axis powers and an expeditiary force was set up mostly equipped by the US. Brazil has an interesting mix of USA equipment and unique ways to use it.",
-      "subfactions": {"infantry_focus": {"name": "Infantry", "id": "infantry_focus", "description": "High quality infantry and anti-tank artillery.", "restricted": true}}
+      "description": "Starting the war as a neutral power, Brazil began to suppor the allied war effort with air bases in its territory. Eventually war was delcared ont he axis powers and an expeditiary force was set up mostly equipped by the US. Brazil has an interesting mix of USA equipment and unique ways to use it."
     }
   },
   "unfinished_factions": {
@@ -1409,13 +1408,6 @@
       "description": "Use when taking a skill test. You may re-roll that test and it may not be re-rolled again. This may be used once per round.",
       "cost": 1
     },
-    "incredible_courage": {
-      "phase": "activation",
-      "name": "Incredible Courage",
-      "flavor": "Even in the darkest of times, moments of great courage can occur.",
-      "description": "Use when a unit takes a Courage test. That unit gains +2 Courage for that test. This may be used once per round.",
-      "cost": 2
-    },
     "battlefield_reserves": {
       "phase": "pre_game",
       "name": "Outflanking Reserves",
@@ -1425,7 +1417,7 @@
     },
     "recrew": {
       "phase": "activation",
-      "subfactions": ["infantry_focus"],
+      "subfactions": ["infantry_platoon"],
       "name": "Re-crew",
       "flavor": "It's highly important to keep artillery pieces manned and fighting.",
       "description": "Use when an _Infantry_ unit moves within 3\" of an _Artillery_ unit. Remove any number of models from the _Infantry_ unit and add restore that amount of crew to the _Artillery_ unit. This may not exceed the starting crew size of the artillery unit.",
@@ -1433,7 +1425,7 @@
     },
     "target_weak_point": {
       "phase": "activation",
-      "subfactions": ["infantry_focus"],
+      "subfactions": ["infantry_platoon"],
       "name": "Target Weak Point",
       "flavor": "Exploiting weak points an an enemy's armor is key to taking out hard targets.",
       "description": "Use before shooting with an _Infantry_ or _Artillery_ unit's weapon with AP 3 or higher. That attack is treated as hitting the target's side.",
@@ -1441,7 +1433,7 @@
     },
     "frag_out": {
       "phase": "activation",
-      "subfactions": ["infantry_focus"],
+      "subfactions": ["infantry_platoon"],
       "name": "Frag Out",
       "flavor": "A volley of hand grenades can be quite effective at dealing with enemies in cover.",
       "description": "Use before shooting with an _Infantry_ unit that has Grenades (any type). That unit may throw 2 additional grenades.",
@@ -1449,7 +1441,7 @@
     },
     "armored_assault": {
       "phase": "activation",
-      "subfactions": ["armored_focus"],
+      "subfactions": ["armored_platoon"],
       "name": "Armored Assault",
       "flavor": "Occasionally armored units are used to push infantry and other units off a dug in position.",
       "description": "Use when a Vehicle unit declares a Charge action. It is treated as having Shock(+3) for that action.",
@@ -1457,7 +1449,7 @@
     },
     "improvised_tactics": {
       "phase": "activation",
-      "subfactions": ["armored_focus"],
+      "subfactions": ["armored_platoon"],
       "name": "Improvised Tactics",
       "flavor": "Sometimes it is necessary to improvise in an armored engagement in order to gain the edge.",
       "description": "Use when a Vehicle unit is attempting a reaction test. It gets +2 Initiative for that test.",
@@ -1465,7 +1457,7 @@
     },
     "crew_repairs": {
       "phase": "activation",
-      "subfactions": ["armored_focus"],
+      "subfactions": ["armored_platoon"],
       "name": "Emergency Repairs",
       "flavor": "In moments of dire circumstance crews may need to repair their vehicle in combat.",
       "description": "Use when a _Vehicle_ unit is activated. That unit may repair one critical damage caused by a penetrating hit.",
@@ -1551,14 +1543,14 @@
         "map": "/data/missions/defense.png",
         "setup": "You and your opponent must set up objective markers as shown in the mission map.",
         "deployment": "Roll off and the winner chooses a table edge to defend. Their opponent will get the opposite table edges to attack. The defender may additionally deploy any units inside the red marked area during deployment.",
-        "victory_conditions": "Players score 5 VP at the end of the round for each of the following: \n * Controlling one objective \n * Controlling two or more objectives \n * Controlling three or more objectives"
+        "victory_conditions": "Players score 1 VP at the end of the round for each of the following: \n * Controlling one objective \n * Controlling two or more objectives \n * Controlling three or more objectives"
       },
       "corner_defense": {
         "name": "Corner Defense",
         "map": "/data/missions/corner_defense.png",
         "setup": "You and your opponent must set up objective markers as shown in the mission map.",
         "deployment": "Roll off and the winner chooses a table edge to defend. Their opponent will get the opposite table edges to attack. The defender may additionally deploy any units inside the red marked area during deployment.",
-        "victory_conditions": "Players score 5 VP at the end of the round for each of the following: \n * Controlling one objective \n * Controlling two or more objectives \n * Controlling three or more objectives"
+        "victory_conditions": "Players score 1 VP at the end of the round for each of the following: \n * Controlling one objective \n * Controlling two or more objectives \n * Controlling three or more objectives"
       }
     },
     "missions": {
@@ -1567,70 +1559,70 @@
         "map": "https://github.com/dice-guild/vortex-gate-data/raw/main/maps/frontline.png",
         "setup": "You and your opponent must set up objective markers as shown in the mission map.",
         "deployment": "Roll off and the winner chooses a table edge for their reinforcements. Their opponent will get the opposite table edge.",
-        "victory_conditions": "Players score 5 VP at the end of the round for each of the following: \n * Controlling one objective \n * Controlling two or more objectives \n * Controlling three or more objectives"
+        "victory_conditions": "Players score 1 VP at the end of the round for each of the following: \n * Controlling one objective \n * Controlling two or more objectives \n * Controlling three or more objectives"
       },
       "dual_fronts": {
         "name": "Dual Fronts",
         "map": "https://github.com/dice-guild/vortex-gate-data/raw/main/maps/dual_frontlines.png",
         "setup": "You and your opponent must set up objective markers as shown in the mission map.",
         "deployment": "Roll off and the winner chooses a table edge for their reinforcements. Their opponent will get the opposite table edge.",
-        "victory_conditions": "Players score 5 VP at the end of the round for each of the following: \n * Controlling one objective \n * Controlling two or more objectives \n * Controlling three or more objectives"
+        "victory_conditions": "Players score 1 VP at the end of the round for each of the following: \n * Controlling one objective \n * Controlling two or more objectives \n * Controlling three or more objectives"
       },
       "wide": {
         "name": "Frontline Wide",
         "map": "https://github.com/dice-guild/vortex-gate-data/raw/main/maps/wide.png",
         "setup": "You and your opponent must set up objective markers as shown in the mission map.",
         "deployment": "Roll off and the winner chooses a table edge for their reinforcements. Their opponent will get the opposite table edge.",
-        "victory_conditions": "Players score 5 VP at the end of the round for each of the following: \n * Controlling one objective \n * Controlling two or more objectives \n * Controlling three or more objectives"
+        "victory_conditions": "Players score 1 VP at the end of the round for each of the following: \n * Controlling one objective \n * Controlling two or more objectives \n * Controlling three or more objectives"
       },
       "push": {
         "name": "Push",
         "map": "https://github.com/dice-guild/vortex-gate-data/raw/main/maps/push.png",
         "setup": "You and your opponent must set up objective markers as shown in the mission map.",
         "deployment": "Roll off and the winner chooses a table edge for their reinforcements. Their opponent will get the opposite table edge.",
-        "victory_conditions": "Players score 5 VP at the end of the round for each of the following: \n * Controlling one objective \n * Controlling two or more objectives \n * Controlling three or more objectives"
+        "victory_conditions": "Players score 1 VP at the end of the round for each of the following: \n * Controlling one objective \n * Controlling two or more objectives \n * Controlling three or more objectives"
       },
       "corner_push": {
         "name": "Corner Push",
         "map": "https://github.com/dice-guild/vortex-gate-data/raw/main/maps/corner_push.png",
         "setup": "You and your opponent must set up objective markers as shown in the mission map.",
         "deployment": "Roll off and the winner chooses a table edge for their reinforcements. Their opponent will get the opposite table edge.",
-        "victory_conditions": "Players score 5 VP at the end of the round for each of the following: \n * Controlling one objective \n * Controlling two or more objectives \n * Controlling three or more objectives"
+        "victory_conditions": "Players score 1 VP at the end of the round for each of the following: \n * Controlling one objective \n * Controlling two or more objectives \n * Controlling three or more objectives"
       },
       "flanking_frontlines": {
         "name": "Flanking Frontlines",
         "map": "https://github.com/dice-guild/vortex-gate-data/raw/main/maps/flanking_frontlines.png",
         "setup": "You and your opponent must set up objective markers as shown in the mission map.",
         "deployment": "Roll off and the winner chooses a table edge for their reinforcements. Their opponent will get the opposite table edge.",
-        "victory_conditions": "Players score 5 VP at the end of the round for each of the following: \n * Controlling one objective \n * Controlling two or more objectives \n * Controlling three or more objectives"
+        "victory_conditions": "Players score 1 VP at the end of the round for each of the following: \n * Controlling one objective \n * Controlling two or more objectives \n * Controlling three or more objectives"
       },
       "corner_frontlines": {
         "name": "Corner Frontlines",
         "map": "https://github.com/dice-guild/vortex-gate-data/raw/main/maps/corner_frontlines.png",
         "setup": "You and your opponent must set up objective markers as shown in the mission map.",
         "deployment": "Roll off and the winner chooses a table edge for their reinforcements. Their opponent will get the opposite table edge.",
-        "victory_conditions": "Players score 5 VP at the end of the round for each of the following: \n * Controlling one objective \n * Controlling two or more objectives \n * Controlling three or more objectives"
+        "victory_conditions": "Players score 1 VP at the end of the round for each of the following: \n * Controlling one objective \n * Controlling two or more objectives \n * Controlling three or more objectives"
       },
       "diagonal_frontlines": {
         "name": "Diagonal Frontlines",
         "map": "https://github.com/dice-guild/vortex-gate-data/raw/main/maps/diagonal_frontlines.png",
         "setup": "You and your opponent must set up objective markers as shown in the mission map.",
         "deployment": "Roll off and the winner chooses a table edge for their reinforcements. Their opponent will get the opposite table edge.",
-        "victory_conditions": "Players score 5 VP at the end of the round for each of the following: \n * Controlling one objective \n * Controlling two or more objectives \n * Controlling three or more objectives"
+        "victory_conditions": "Players score 1 VP at the end of the round for each of the following: \n * Controlling one objective \n * Controlling two or more objectives \n * Controlling three or more objectives"
       },
       "sectors": {
         "name": "Sectors",
         "map": "https://github.com/dice-guild/vortex-gate-data/raw/main/maps/sectors.png",
         "setup": "You and your opponent must set up objective markers as shown in the mission map.",
         "deployment": "Roll off and the winner chooses a table edge for their reinforcements. Their opponent will get the opposite table edge.",
-        "victory_conditions": "Players score 5 VP at the end of the round for each of the following: \n * Controlling one objective \n * Controlling two or more objectives \n * Controlling three or more objectives"
+        "victory_conditions": "Players score 1 VP at the end of the round for each of the following: \n * Controlling one objective \n * Controlling two or more objectives \n * Controlling three or more objectives"
       },
       "wide_push": {
         "name": "Push Wide",
         "map": "https://github.com/dice-guild/vortex-gate-data/raw/main/maps/wide_push.png",
         "setup": "You and your opponent must set up objective markers as shown in the mission map.",
         "deployment": "Roll off and the winner chooses a table edge for their reinforcements. Their opponent will get the opposite table edge.",
-        "victory_conditions": "Players score 5 VP at the end of the round for each of the following: \n * Controlling one objective \n * Controlling two or more objectives \n * Controlling three or more objectives"
+        "victory_conditions": "Players score 1 VP at the end of the round for each of the following: \n * Controlling one objective \n * Controlling two or more objectives \n * Controlling three or more objectives"
       }
     },
     "weather": {
@@ -1680,54 +1672,54 @@
       "new_orders": {
         "name": "New Orders",
         "description": "New orders have been received and additional objectives are available.",
-        "rules": "* Each player places one additional objective 12\" away from any existing objectives and more than 12\" away from their deployment area.\n\n Players score 5 VP at the end of the round for each of the following: \n * Controlling one objective \n * Controlling two or more objectives \n * Controlling three or more objectives"
+        "rules": "* Each player places one additional objective 12\" away from any existing objectives and more than 12\" away from their deployment area.\n\n Players score 1 VP at the end of the round for each of the following: \n * Controlling one objective \n * Controlling two or more objectives \n * Controlling three or more objectives"
       },
       "breakthrough": {
         "name": "Breakthrough",
         "description": "Breaking through enemy lines can cause havoc for troop organization.",
-        "rules": "* Once per round, players may move a unit off their opponents table edge. After doing so, remove the unit from the board and gain 5 VP.\n\n Players score 5 VP at the end of the round for each of the following: \n * Controlling one objective \n * Controlling two or more objectives \n * Controlling three or more objectives"
+        "rules": "* Once per round, players may move a unit off their opponents table edge. After doing so, remove the unit from the board and gain 1 VP.\n\n Players score 1 VP at the end of the round for each of the following: \n * Controlling one objective \n * Controlling two or more objectives \n * Controlling three or more objectives"
       },
       "take_and_hold": {
         "name": "Take and Hold",
         "description": "Taking key ground can be critical to moving the frontline forward.",
-        "rules": "* Each player places one additional objective inside the enemy deployment area and 12\" away from all existing objectives.\n\n Players score 5 VP at the end of the round for each of the following: \n * Controlling one objective \n * Controlling two or more objectives \n * Controlling three or more objectives"
+        "rules": "* Each player places one additional objective inside the enemy deployment area and 12\" away from all existing objectives.\n\n Players score 1 VP at the end of the round for each of the following: \n * Controlling one objective \n * Controlling two or more objectives \n * Controlling three or more objectives"
       },
       "deploy": {
         "name": "Deploy",
         "description": "Setting up critical battlefield objectives can prove valuable in the coming battles.",
-        "rules": "* Choose up to 3 units at the start of the game to carry a deploy objective marker. \n* During a unit's activation, they may perform an initiative test to setup a deploy objective marker outside their deployment area and in base contact with a model from the unit. \n* A player with more models within 3\" of that objective marker may perform an Initiative test to destroy a deploy objective marker. \n* At the end of the game, players earn 3 VP for each deploy objective marker still active on the table.\n\n Players score 5 VP at the end of the round for each of the following: \n * Controlling one objective \n * Controlling two or more objectives \n * Controlling three or more objectives"
+        "rules": "* Choose up to 3 units at the start of the game to carry a deploy objective marker. \n* During a unit's activation, they may perform an initiative test to setup a deploy objective marker outside their deployment area and in base contact with a model from the unit. \n* A player with more models within 3\" of that objective marker may perform an Initiative test to destroy a deploy objective marker. \n* At the end of the game, players earn 1 VP for each deploy objective marker still active on the table.\n\n Players score 1 VP at the end of the round for each of the following: \n * Controlling one objective \n * Controlling two or more objectives \n * Controlling three or more objectives"
       },
       "caches": {
         "name": "Caches",
         "description": "Important caches are scattered throughout the battlefield which can be secured.",
-        "rules": "* Players roll off and alternate placing 6 cache markers on the field within 3\" of any objective marker and more than 3\" away from other cache markers.\n* No objective may have more than 2 cache markers placed within 3“ of it.\n* Units may perform the Recover action when in base contact with a cache marker. Perform an Initiative test with that unit. If successful, gain 3 VP and remove the cache marker from the board.\n\n Players score 5 VP at the end of the round for each of the following: \n * Controlling one objective \n * Controlling two or more objectives \n * Controlling three or more objectives"
+        "rules": "* Players roll off and alternate placing 6 cache markers on the field within 3\" of any objective marker and more than 3\" away from other cache markers.\n* No objective may have more than 2 cache markers placed within 3“ of it.\n* Units may perform the Recover action when in base contact with a cache marker. Perform an Initiative test with that unit. If successful, gain 1 VP and remove the cache marker from the board.\n\n Players score 1 VP at the end of the round for each of the following: \n * Controlling one objective \n * Controlling two or more objectives \n * Controlling three or more objectives"
       },
       "raze": {
         "name": "Raze",
         "description": "Destroying an objective can ensure your opponent cannot use it against you.",
-        "rules": "* At the end of the round after objectives are scored, if you control more than one objective, you may choose to destroy an objective you control for 5 VP. After you do this, remove the objective from the board.\n\n Players score 5 VP at the end of the round for each of the following: \n * Controlling one objective \n * Controlling two or more objectives \n * Controlling three or more objectives"
+        "rules": "* At the end of the round after objectives are scored, if you control more than one objective, you may choose to destroy an objective you control for 1 VP. After you do this, remove the objective from the board.\n\n Players score 1 VP at the end of the round for each of the following: \n * Controlling one objective \n * Controlling two or more objectives \n * Controlling three or more objectives"
       }
     },
     "secondaries": {
       "priority_orders": {
         "name": "Priority Orders",
         "description": "A message has come from high command to take this important objective.",
-        "rules": "* Players designate one objective to be their priority objective. If held, you gain 3 VP. This cannot be the objective closest to your deployment zone."
+        "rules": "* Players designate one objective to be their priority objective. If held, you gain 1 VP. This cannot be the objective closest to your deployment zone."
       },
       "infiltrate": {
         "name": "Infiltrate",
         "description": "Infiltrating the enemy zone and gathering intel can be critical to success.",
-        "rules": "* Once per round, a unit may perform the Gather Intel action inside the enemy deployment area. Perform an Initiative test with that unit. If successful, gain 5 VP."
+        "rules": "* Once per round, a unit may perform the Gather Intel action inside the enemy deployment area. Perform an Initiative test with that unit. If successful, gain 1 VP."
       },
       "secure": {
         "name": "Secure",
         "description": "Securing an objective for further control can be essential.",
-        "rules": "* Once per round, a unit in range of an objective may perform the Secure action. Perform an Initiative test with that unit. If successful, gain 3 VP."
+        "rules": "* Once per round, a unit in range of an objective may perform the Secure action. Perform an Initiative test with that unit. If successful, gain 1 VP."
       },
       "critical_asset": {
         "name": "Critical Asset",
         "description": "You must take a secure an important item for further investigation.",
-        "rules": "* Place one critical item objective marker at the center of the table. At the end of the round, if a player controls that objective, that unit picks up the objective marker and it travels with the unit. If the unit is killed, place the objective marker where the unit was destroyed. \n* At the end of the round, the player controlling the objective marker gains 2 VP and at the end of the game the player that controls the objective marker gains an additional 5 VP."
+        "rules": "* Place one critical item objective marker at the center of the table. At the end of the round, if a player controls that objective, that unit picks up the objective marker and it travels with the unit. If the unit is killed, place the objective marker where the unit was destroyed. \n* At the end of the round, the player controlling the objective marker gains 1 VP and at the end of the game the player that controls the objective marker gains an additional 1 VP."
       },
       "attrition": {
         "name": "Attrition",
@@ -1737,22 +1729,22 @@
       "lockdown": {
         "name": "Lockdown",
         "description": "It is not enough to simply control important ground. It must be fully locked down.",
-        "rules": "* Each objective with no enemy units within 12\" grants an additional 3 VP."
+        "rules": "* Each objective with no enemy units within 12\" grants an additional 1 VP."
       },
       "domination": {
         "name": "Domination",
         "description": "Securing the most ground can give you a positional advantage in the fight.",
-        "rules": "* At the end of the round after objectives are scored, if you have a non-engaged unit in at least 3 table quarters, gain 3 VP. If you have an non-engaged unit in all table quarters gain 5 VP instead."
+        "rules": "* At the end of the round after objectives are scored, if you have a non-engaged unit in at least 3 table quarters, gain 1 VP. If you have an non-engaged unit in all table quarters gain 1 VP instead."
       },
       "bounty": {
         "name": "Bounty",
         "description": "It is sometimes necessary to eliminate a key target during the battle for operational purposes.",
-        "rules": "* Choose one enemy unit at the start of the game. If that unit is fully destroyed, gain 5 VP."
+        "rules": "* Choose one enemy unit at the start of the game. If that unit is fully destroyed, gain 1 VP."
       },
       "conquest": {
         "name": "Conquest",
         "description": "Taking ground from the enemy can be even more satisfying than holding your own.",
-        "rules": "* At the end of the round, each objective captured which was previously controlled by an enemy grants an additional 3 VP."
+        "rules": "* At the end of the round, each objective captured which was previously controlled by an enemy grants an additional 1 VP."
       }
     }
   }

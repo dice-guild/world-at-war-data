@@ -1,6 +1,7 @@
 {
   "reportUrl": "https://github.com/dice-guild/world-war-two/issues",
   "author": "guitarninja#5707",
+  "phases": {"pre_game": {"name": "Pre-Game"}, "bidding": {"name": "Bidding"}, "activation": {"name": "Activation"}},
   "factions": {
     "germany": {
       "version": "1.0",
